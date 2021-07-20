@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from 'rmwc';
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+    <ThemeProvider options={{
+      'primary':'#426EF0',
+      'fontFamily':'Maven Pro'
+    }}>
     <App />
-  </React.StrictMode>,
+    </ThemeProvider>
+    </>,
   document.getElementById('root')
 );
 
