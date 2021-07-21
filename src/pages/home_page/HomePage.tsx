@@ -36,7 +36,7 @@ export function HomePage() {
             <div>
                 {/* <h1>Welcome {authState.displayName}</h1> */}
                 <Button raised onClick={logout} label="Logout" icon={
-                    <Avatar name="authState.displayName" />
+                    <Avatar name={authState.displayName??""} />
                 }></Button>
             </div>
         )
