@@ -1,13 +1,18 @@
-import { Elevation, TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle } from "rmwc";
+import { Button, Elevation, TopAppBar, TopAppBarNavigationIcon, TopAppBarRow, TopAppBarSection, TopAppBarTitle } from "rmwc";
+import { HomePage } from "../../pages/home_page/HomePage";
 import './Navbar.css';
 
-export function NavBar(){
+export function NavBar() {
     return (
-        <TopAppBar>
+        <TopAppBar fixed>
             <Elevation z={6}>
                 <TopAppBarRow>
-                    <TopAppBarSection>
-                        <TopAppBarTitle style={{'fontFamily':'Maven Pro'}}>Runway CV Builder</TopAppBarTitle>
+                    <TopAppBarSection alignStart>
+                        <TopAppBarNavigationIcon icon="menu" />
+                        <TopAppBarTitle style={{ 'fontFamily': 'Maven Pro' }}>Runway CV Builder</TopAppBarTitle>
+                    </TopAppBarSection>
+                    <TopAppBarSection alignEnd>
+                        <HomePage />
                     </TopAppBarSection>
                 </TopAppBarRow>
             </Elevation>

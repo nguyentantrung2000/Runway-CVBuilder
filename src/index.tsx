@@ -10,12 +10,12 @@ ReactDOM.render(
   <>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
     <ThemeProvider options={{
-      'primary':'#426EF0',
-      'fontFamily':'Maven Pro'
+      'primary': '#426EF0',
+      'fontFamily': 'Maven Pro'
     }}>
-    <App />
+      <App />
     </ThemeProvider>
-    </>,
+  </>,
   document.getElementById('root')
 );
 
