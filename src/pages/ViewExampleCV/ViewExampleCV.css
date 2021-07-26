@@ -1,0 +1,45 @@
+/*
+primary 426EF0
+danger FF382D
+safe 4FD132
+
+font Maven-pro
+
+*/
+.body{
+    background-color: ffffff;
+}
+.category{
+font-family: Maven Pro;
+font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: 42px;
+letter-spacing: 0em;
+text-decoration: underline;
+margin: 2% 0 0 2%;
+}
+.viewCVfunction{
+display: flex;
+flex-direction: row;
+margin: 2% 0 0 0;
+}
+.viewCVfunction Button{
+    margin-top: 5%;
+    border-radius: 50%;
+}
+.CVList{
+width: 100%;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+
+}
+.CV{    
+width: 200px;
+height: 238px;
+flex: 0 1 200px;
+border: 1px solid #000000;
+box-sizing: border-box;
+margin:auto ;
+}
