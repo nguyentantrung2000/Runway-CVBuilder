@@ -9,12 +9,61 @@
     margin: 4% 0 0 2%;
     }
 .CVList{
-    width: 100%;
+    width: 90%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
+    justify-content: space-around;
 }
+.CVBox{
+    width: 360px;
+    height: 400px;
+    padding: 24px;
+    background: #fff;
+    position:relative;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s ease-out;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5) ;
+}
+/* /* .button-Hover{
+    padding: 24px;
+    background: #fff;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition:  .6s ease-out;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+
+} */
+
+.CVBox:hover{
+    transform: translateY(15px);
+}
+
+
+.CVBox:hover:before{
+    opacity: 1;
+}
+
+.CVBox:hover .button-Hover{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+.CVBox img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+
+
+
+
 .CV{    
     width: 235px;
     height: 298px;
@@ -33,12 +82,6 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 20px;
-}
-.CVBox{
-    margin: 1% 0 0 3%;
-}
-.CV:hover{
-    filter: blur(2px);
 }
 .buttonAdd{
     width: 235px;

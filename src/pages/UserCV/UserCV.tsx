@@ -1,5 +1,6 @@
 import './UserCV.css';
-// import {  Button} from 'react-bootstrap'
+import { Button} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 export function UserCV() {
     const UserCVdatabase = [
         {
@@ -24,6 +25,11 @@ export function UserCV() {
             <div key={index} className="CVBox" >
                 <h1 className="CVtitle">{data.title}</h1>
                 <img src={data.CVSrc} alt="" className="CV" />
+                <div className="button-Hover">
+                <Button  variant="outline-success">Edit</Button>{' '}
+                <Button variant="outline-danger">Delete</Button>{' '}
+               </div>
+              
             </div>
         );
     });
@@ -32,7 +38,6 @@ export function UserCV() {
             <h1 className="category">
                 DANH SÁCH CV CỦA BẠN
             </h1>
-
             <div className="CVList">
                 {CVlist}
                 <button className="buttonAdd" onClick={test}> +Thêm CV</button>
