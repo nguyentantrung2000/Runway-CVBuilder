@@ -8,14 +8,15 @@ import { NavBar } from './components/nav_bar/Navbar';
 import firebase from 'firebase';
 import { config } from './firebase.config';
 import {ViewExampleCV} from './pages/ViewExampleCV/ViewExampleCV'
-
+import {CreateCV2} from './pages/create_cv2/CreateCV2'
 firebase.initializeApp(config);
 
 function App() {
   return (
     <div>
       <NavBar></NavBar>
-      <CreateCV/>
+      <CreateCV2/>
+      {/* <CreateCV/> */}
       {/* <ViewExampleCV></ViewExampleCV> */}
     </div>
   );
