@@ -1,35 +1,39 @@
-import './UserCV.css'
+import './UserCV.css';
 import { Button } from 'rmwc';
 import { useState } from 'react';
 export function UserCV() {
     const UserCVdatabase = [
         {
+            title: "Hello World",
             CVSrc: "https://i-vn.joboko.com/images/thumb-cv/1080.jpg",
         },
         {
+            title: "World",
             CVSrc: "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340",
         },
         {
+            title: "Hello",
             CVSrc: "https://static01.nyt.com/images/2018/10/04/magazine/04blackhole1/04blackhole1-articleLarge-v3.jpg?quality=75&auto=webp&disable=upscale",
         },
 
-    ]
-    const [style, setStyle] = useState({ display: 'none' });
+    ];
+    // function showButton() {
+    //     return (
+    //         <div >
+    //             <Button> View</Button>
+    //             <Button> Edit</Button>
+    //             <Button> Delete</Button>
+    //         </div>
+    //     )
+    // }
     let CVlist = UserCVdatabase.map((data, index) => {
         return (
-            <div >
-                <img key={index} src={data.CVSrc} alt="" className="CV" 
-                                onMouseEnter={e => {
-                                    setStyle({ display: 'block' });
-                                }}
-                                onMouseLeave={e => {
-                                    setStyle({ display: 'none' })
-                                }}
-                />
-                <Button style={style}>Click</Button>
+            <div key={index} className="CVBox" >
+                <h1 className="CVtitle">{data.title}</h1>
+                <img  src={data.CVSrc} alt="" className="CV" />
             </div>
-        )
-    })
+        );
+    });
     return (
         <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
             <h1 className="category">

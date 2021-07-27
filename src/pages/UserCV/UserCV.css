@@ -9,10 +9,10 @@
     margin: 4% 0 0 2%;
     }
 .CVList{
-width: 100%;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
 }
 .CV{    
@@ -22,4 +22,18 @@ flex-wrap: wrap;
     border: 1px solid #000000;
     box-sizing: border-box;
     margin: 2% 0 0 4%;
-    }
+}
+.CVfunction{
+    position: relative;
+}
+.CVtitle{
+    text-align: center;
+    font-family:  Maven Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+}
+.CVBox{
+    margin: 1% 0 0 3%;
+}
