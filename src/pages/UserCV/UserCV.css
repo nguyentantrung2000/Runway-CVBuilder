@@ -44,10 +44,18 @@
     width: 235px;
     height: 298px;
     flex: 0 1 200px;
-    border: 1px solid #000000;
+    border: 1px solid #426EF0;
+    background-color: #ffffff;
     box-sizing: border-box;
-    margin: 2% 0 0 4%;
-
+    margin: 3% 0 0 4%;
+    font-family: Maven Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    align-items: center;
+    text-align: center;
+    color: #426EF0;
 }
 
 

@@ -16,6 +16,9 @@ export function UserCV() {
         },
 
     ];
+    function test(){
+        console.log("clicked");
+    }
     let CVlist = UserCVdatabase.map((data, index) => {
         return (
             <div key={index} className="CVBox" >
@@ -32,7 +35,7 @@ export function UserCV() {
 
             <div className="CVList">
                 {CVlist}
-                <button className="buttonAdd"> +Thêm CV</button>
+                <button className="buttonAdd" onClick={test}> +Thêm CV</button>
             </div>
             {/* <Button style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '} */}
             {/* <Button> Edit</Button>
