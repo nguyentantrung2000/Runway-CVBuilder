@@ -1,6 +1,5 @@
 import './UserCV.css';
-import { Button } from 'rmwc';
-import { useState } from 'react';
+// import {  Button} from 'react-bootstrap'
 export function UserCV() {
     const UserCVdatabase = [
         {
@@ -17,20 +16,11 @@ export function UserCV() {
         },
 
     ];
-    // function showButton() {
-    //     return (
-    //         <div >
-    //             <Button> View</Button>
-    //             <Button> Edit</Button>
-    //             <Button> Delete</Button>
-    //         </div>
-    //     )
-    // }
     let CVlist = UserCVdatabase.map((data, index) => {
         return (
             <div key={index} className="CVBox" >
                 <h1 className="CVtitle">{data.title}</h1>
-                <img  src={data.CVSrc} alt="" className="CV" />
+                <img src={data.CVSrc} alt="" className="CV" />
             </div>
         );
     });
@@ -42,7 +32,11 @@ export function UserCV() {
 
             <div className="CVList">
                 {CVlist}
+                <button className="buttonAdd"> +Thêm CV</button>
             </div>
+            {/* <Button style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '} */}
+            {/* <Button> Edit</Button>
+            <Button> Delete</Button> */}
         </div>
     );
 }

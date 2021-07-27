@@ -37,3 +37,17 @@
 .CVBox{
     margin: 1% 0 0 3%;
 }
+.CV:hover{
+    filter: blur(2px);
+}
+.buttonAdd{
+    width: 235px;
+    height: 298px;
+    flex: 0 1 200px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin: 2% 0 0 4%;
+
+}
+
+

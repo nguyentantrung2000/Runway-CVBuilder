@@ -51,7 +51,6 @@ export function ViewExampleCV() {
     const [JobCV, setJobCV] = useState(JobCVDatabase.slice(0, currentNumJob));
     const [CV, setCV] = useState(CVdatabase.slice(0, currentNum));
     let CVList = CV.map((data, index) => {
-
         if (index >= 4) {
         }
         else {
@@ -59,7 +58,6 @@ export function ViewExampleCV() {
         }
     })
     let JobCVList = JobCV.map((data, index) => {
-
         if (index >= 4) {
         }
         else {
