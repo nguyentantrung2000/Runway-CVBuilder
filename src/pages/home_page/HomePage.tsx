@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import { useAuthState } from '../../hooks/auth.hook';
 import { Avatar, Button, Icon } from 'rmwc';
 
-export function HomePage() {
+export const HomePage=()=> {
 
     const authState = useAuthState();
     const gIcon = <Icon

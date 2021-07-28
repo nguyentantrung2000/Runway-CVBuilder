@@ -1,7 +1,7 @@
 import './CreateCV.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-export function CreateCV() {
+export const CreateCV=()=> {
     return (
         <div className='from' style={{ 'paddingTop': '6rem' }}>
             <Container>
