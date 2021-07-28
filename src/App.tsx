@@ -3,7 +3,7 @@ import './App.css';
 import 'rmwc/dist/styles';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { HomePage } from './pages/home_page/HomePage';
-import { CreateCV } from './pages/create_cv/CreateCV';
+import { CreateCV } from './pages/create_cv/createCV';
 import { NavBar } from './components/nav_bar/Navbar';
 import { UserCV } from './pages/UserCV/UserCV';
 import firebase from 'firebase';
