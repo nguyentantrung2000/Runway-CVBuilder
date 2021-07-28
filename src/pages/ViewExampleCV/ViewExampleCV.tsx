@@ -3,7 +3,7 @@ import './ViewExampleCV.css'
 import { Button } from 'rmwc';
 import { useState } from "react";
 
-export function ViewExampleCV() {
+export const ViewExampleCV=()=> {
     const CVdatabase = [
         {
             CVSrc: "https://i-vn.joboko.com/images/thumb-cv/1080.jpg",

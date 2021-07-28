@@ -1,7 +1,7 @@
 import './UserCV.css';
-import { Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-export function UserCV() {
+export const UserCV = () => {
     const UserCVdatabase = [
         {
             title: "Hello World",
@@ -17,19 +17,26 @@ export function UserCV() {
         },
 
     ];
-    function test(){
+    function test() {
         console.log("clicked");
     }
     let CVlist = UserCVdatabase.map((data, index) => {
         return (
-            <div key={index} className="CVBox" >
+            <div key={index}>
                 <h1 className="CVtitle">{data.title}</h1>
-                <img src={data.CVSrc} alt="" className="CV" />
-                <div className="button-Hover">
-                <Button  variant="outline-success">Edit</Button>{' '}
-                <Button variant="outline-danger">Delete</Button>{' '}
-               </div>
-              
+                <div className="CVBox" >
+
+                    <img src={data.CVSrc} alt="" className="CV" />
+                    <div className="button-Hover">
+                        <div className="buttonDiv">
+                            <Button variant="outline-primary">View</Button>{' '}
+                            <Button variant="outline-success">Edit</Button>{' '}
+                            <Button variant="outline-danger">Delete</Button>{' '}
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
         );
     });
@@ -40,11 +47,12 @@ export function UserCV() {
             </h1>
             <div className="CVList">
                 {CVlist}
-                <button className="buttonAdd" onClick={test}> +Thêm CV</button>
+                <div>
+                    <div className="CVBoxAdd" onClick={()=>test()}>
+                        <h1> +Thêm CV mới</h1>
+                    </div>
+                </div>
             </div>
-            {/* <Button style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '} */}
-            {/* <Button> Edit</Button>
-            <Button> Delete</Button> */}
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import './CreateCV2.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-export function CreateCV2() {
+export const CreateCV2=()=> {
     return (
         <div style={{ 'paddingTop': '8rem', 'marginLeft': '6rem' }}>
             <Container>
