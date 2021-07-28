@@ -1,6 +1,6 @@
 import '../create_skill_popup/create_skill.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Button, } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 export function CreateSkill(){
     return(
