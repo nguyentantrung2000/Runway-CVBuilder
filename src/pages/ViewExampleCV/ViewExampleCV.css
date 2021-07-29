@@ -37,15 +37,12 @@ flex-wrap: wrap;
 
 }
 .CV{    
-
+width:360px;
+height: 400px;
 flex: 0 1 200px;
-border-radius: 15%;
+border-radius: 10px;
 margin:1% 0 5% 0 ;
 }
 .CV:hover{
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5) ;
-}
-img{
-width: 360px;
-height: 400px;
 }
