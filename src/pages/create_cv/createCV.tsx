@@ -1,13 +1,11 @@
-import './CreateCV.css'
+import './createCV.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { CreateSkill } from '../../components/create_skill_popup/create_skill'
 import { useState } from 'react'
 
 export const CreateCV = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [lgShow, setLgShow] = useState(false);
 
     return (
         <div className='from' style={{ 'paddingTop': '6rem' }}>
@@ -102,11 +100,11 @@ export const CreateCV = () => {
                                                         <ListGroup.Item>Cras justo odio</ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>
+                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={() => setLgShow(true)}>
                                                     + Add Skills
                                                 </Button>
 
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Modal size="lg" show={lgShow} onHide={() => setLgShow(false)} aria-labelledby="example-modal-sizes-title-lg">
                                                     <Modal.Header closeButton>
                                                         <Modal.Title>Modal heading</Modal.Title>
 
@@ -136,15 +134,6 @@ export const CreateCV = () => {
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                             <Col>
@@ -154,8 +143,8 @@ export const CreateCV = () => {
                                                         <ListGroup.Item>Cras justo odio</ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>+Add Hobbies</Button>
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={() => setLgShow(true)}>+Add Hobbies</Button>
+                                                <Modal size="lg" show={lgShow} onHide={() => setLgShow(false)} aria-labelledby="example-modal-sizes-title-lg">
                                                     <Modal.Header closeButton>
                                                         <Modal.Title>Modal heading</Modal.Title>
 
@@ -174,15 +163,6 @@ export const CreateCV = () => {
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                         </Row>
@@ -194,8 +174,8 @@ export const CreateCV = () => {
                                                         <ListGroup.Item>Cras justo odio</ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>+Add Educations </Button>
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={() => setLgShow(true)}>+Add Educations </Button>
+                                                <Modal size="lg" show={lgShow} onHide={() => setLgShow(false)} aria-labelledby="example-modal-sizes-title-lg">
                                                     <Modal.Header closeButton>
                                                         <Modal.Title>Modal heading</Modal.Title>
 
@@ -246,15 +226,6 @@ export const CreateCV = () => {
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                             <Col>
@@ -264,8 +235,8 @@ export const CreateCV = () => {
                                                         <ListGroup.Item>Cras justo odio</ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>+Add Employments</Button>
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={() => setLgShow(true)}>+Add Employments</Button>
+                                                <Modal ssize="lg" show={lgShow} onHide={() => setLgShow(false)} aria-labelledby="example-modal-sizes-title-lg">
                                                     <Modal.Header closeButton>
                                                         <Modal.Title>Modal heading</Modal.Title>
 
@@ -310,15 +281,6 @@ export const CreateCV = () => {
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                         </Row>
