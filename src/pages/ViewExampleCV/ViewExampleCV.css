@@ -6,43 +6,48 @@ safe 4FD132
 font Maven-pro
 
 */
-.body{
+
+.body {
     background-color: ffffff;
 }
-.category{
-font-family: Maven Pro;
-font-size: 36px;
-font-style: normal;
-font-weight: 500;
-line-height: 42px;
-letter-spacing: 0em;
-text-decoration: underline;
-margin: 4% 0 0 2%;
+
+.category {
+    font-family: Maven Pro;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-decoration: underline;
+    margin: 4% 0 0 2%;
 }
-.viewCVfunction{
-display: flex;
-flex-direction: row;
-margin: 2% 0 0 0;
+
+.viewCVfunction {
+    display: flex;
+    flex-direction: row;
+    margin: 2% 0 0 0;
 }
-.viewCVfunction Button{
+
+.viewCVfunction Button {
     margin-top: 5%;
     border-radius: 50%;
 }
-.CVList{
-width: 100%;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
 
+.CVList {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
+.CV {
+    width: 360px;
+    height: 400px;
+    flex: 0 1 200px;
+    border-radius: 10px;
+    margin: 1% 0 5% 0;
 }
-.CV{    
-width:360px;
-height: 400px;
-flex: 0 1 200px;
-border-radius: 10px;
-margin:1% 0 5% 0 ;
-}
-.CV:hover{
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5) ;
+
+.CV:hover {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 }
