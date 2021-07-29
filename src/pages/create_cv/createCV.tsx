@@ -1,4 +1,4 @@
-import './CreateCV.css'
+import './createCV.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { CreateSkill } from '../../components/create_skill_popup/create_skill'

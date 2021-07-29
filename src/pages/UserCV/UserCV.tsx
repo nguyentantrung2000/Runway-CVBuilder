@@ -43,13 +43,13 @@ export const UserCV = () => {
     return (
         <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
             <h1 className="category">
-                DANH SÁCH CV CỦA BẠN
+                Your CV List
             </h1>
             <div className="CVList">
                 {CVlist}
                 <div>
                     <div className="CVBoxAdd" onClick={()=>test()}>
-                        <h1> +Thêm CV mới</h1>
+                        <h1> +Add new CV</h1>
                     </div>
                 </div>
             </div>
