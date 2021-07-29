@@ -24,8 +24,6 @@ function App() {
           <Route path="/viewexcv" component={ViewExampleCV} />
         </Switch>
       </Router>
-
-
     </React.Fragment>
   );
 }
