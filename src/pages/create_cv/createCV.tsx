@@ -1,4 +1,4 @@
-import './CreateCV.css'
+import './createCV.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 export const CreateCV = () => (
