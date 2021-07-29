@@ -5,9 +5,10 @@ import { CreateSkill } from '../../components/create_skill_popup/create_skill'
 import { useState } from 'react'
 
 export const CreateCV = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [show1, setShow1] = useState(false);
+    const [show2, setShow2] = useState(false);
+    const [lgShow3, setLgShow3] = useState(false);
+    const [lgShow4, setLgShow4] = useState(false);
 
     return (
         <div className='from' style={{ 'paddingTop': '6rem' }}>
@@ -99,30 +100,29 @@ export const CreateCV = () => {
                                                 <h3>Skills</h3>
                                                 <Card style={{ width: '13rem' }}>
                                                     <ListGroup variant="flush">
-                                                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                                    <ListGroup.Item style={{display:'flex', justifyContent:'space-between'}}>
+                                                            <p style={{margin:'auto',paddingRight:'1rem'}}>Cras justo odio</p>
+                                                            <Button onClick={() => setShow1(true)}>+</Button>
+                                                        </ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>
-                                                    + Add Skills
-                                                </Button>
-
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Modal size='lg' show={show1} onHide={() => setShow1(false)} aria-labelledby="contained-modal-title-vcenter" centered>
                                                     <Modal.Header closeButton>
-                                                        <Modal.Title>Modal heading</Modal.Title>
+                                                        <Modal.Title>Add Skills</Modal.Title>
 
                                                     </Modal.Header>
                                                     <Modal.Body>
                                                         <div style={{ 'display': 'flex', 'placeContent': 'center' }}>
                                                             <div style={{ 'display': 'flex' }}>
-                                                                <Form style={{ 'marginRight': '0.5rem' }}>
+                                                                <Form style={{ 'marginRight': '1rem' }}>
                                                                     <Form.Group className="mb-3" controlId="formBasicText">
                                                                         <Form.Label>Skill name</Form.Label>
-                                                                        <Form.Control type="text" placeholder="Eg. your text here" />
+                                                                        <Form.Control  type="text" placeholder="Eg. your text here" />
                                                                     </Form.Group>
                                                                 </Form>
-                                                                <Form style={{ 'marginRight': '0.5rem' }}>
+                                                                <Form style={{ 'marginRight': '1rem' }}>
                                                                     <Form.Label>Level</Form.Label>
-                                                                    <Form.Select aria-label="Default select example">
+                                                                    <Form.Select style={{marginTop:'0.35rem'}} aria-label="Default select example">
                                                                         <option>Choose one</option>
                                                                         <option value="1">1</option>
                                                                         <option value="2">2</option>
@@ -130,34 +130,27 @@ export const CreateCV = () => {
                                                                     </Form.Select>
                                                                 </Form>
                                                             </div>
-                                                            <div style={{ 'paddingTop': '2rem' }}>
-                                                                <Button style={{ 'marginRight': '1rem' }} variant="outline-danger">Cancel</Button>
+                                                            <div style={{marginTop: '2.2rem' }}>
+                                                                <Button style={{ 'marginRight': '0.5rem' }} variant="outline-danger">Cancel</Button>
                                                                 <Button variant="outline-primary">Done</Button>
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                             <Col>
                                                 <h3>Hobbies</h3>
                                                 <Card style={{ width: '13rem' }}>
                                                     <ListGroup variant="flush">
-                                                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                                        <ListGroup.Item style={{display:'flex', justifyContent:'space-between'}}>
+                                                            <p style={{margin:'auto',paddingRight:'1rem'}}>Cras justo odio</p>
+                                                            <Button onClick={() => setShow2(true)}>+</Button>
+                                                        </ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>+Add Hobbies</Button>
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Modal show={show2} onHide={() => setShow2(false)} aria-labelledby="contained-modal-title-vcenter" centered>
                                                     <Modal.Header closeButton>
-                                                        <Modal.Title>Modal heading</Modal.Title>
+                                                        <Modal.Title>Add Hobbies</Modal.Title>
 
                                                     </Modal.Header>
                                                     <Modal.Body>
@@ -168,21 +161,12 @@ export const CreateCV = () => {
                                                                     <Form.Control type="text" placeholder="Eg. your text here" />
                                                                 </Form.Group>
                                                             </Form>
-                                                            <div style={{ 'paddingTop': '2rem' }}>
-                                                                <Button style={{ 'marginRight': '1rem' }} variant="outline-danger">Cancel</Button>
+                                                            <div style={{ 'marginTop': '2.2rem' }}>
+                                                                <Button style={{ 'marginRight': '0.5rem' }} variant="outline-danger">Cancel</Button>
                                                                 <Button variant="outline-primary">Done</Button>
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                         </Row>
@@ -191,19 +175,21 @@ export const CreateCV = () => {
                                                 <h3>Educations</h3>
                                                 <Card style={{ width: '13rem' }}>
                                                     <ListGroup variant="flush">
-                                                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                                    <ListGroup.Item style={{display:'flex', justifyContent:'space-between'}}>
+                                                            <p style={{margin:'auto',paddingRight:'1rem'}}>Cras justo odio</p>
+                                                            <Button onClick={() => setLgShow3(true)}>+</Button>
+                                                        </ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>+Add Educations </Button>
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Modal size="lg" show={lgShow3} onHide={() => setLgShow3(false)} aria-labelledby="contained-modal-title-vcenter" centered>
                                                     <Modal.Header closeButton>
-                                                        <Modal.Title>Modal heading</Modal.Title>
+                                                        <Modal.Title>Add Educations</Modal.Title>
 
                                                     </Modal.Header>
                                                     <Modal.Body>
                                                         <div>
                                                             <Form style={{ 'display': 'flex', 'placeContent': 'center' }}>
-                                                                <div style={{ 'marginRight': '1rem', 'width': '21.25%' }}>
+                                                                <div style={{ 'marginRight': '1rem', 'width': '54%' }}>
                                                                     <div>
                                                                         <Form.Group className="mb-3" controlId="formBasicText">
                                                                             <Form.Label>Education</Form.Label>
@@ -246,34 +232,27 @@ export const CreateCV = () => {
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                             <Col>
                                                 <h3>Employments</h3>
                                                 <Card style={{ width: '13rem' }}>
                                                     <ListGroup variant="flush">
-                                                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                                    <ListGroup.Item style={{display:'flex', justifyContent:'space-between'}}>
+                                                            <p style={{margin:'auto',paddingRight:'1rem'}}>Cras justo odio</p>
+                                                            <Button onClick={() => setLgShow4(true)}>+</Button>
+                                                        </ListGroup.Item>
                                                     </ListGroup>
                                                 </Card>
-                                                <Button style={{ 'marginTop': '0.5rem' }} variant="primary" onClick={handleShow}>+Add Employments</Button>
-                                                <Modal show={show} onHide={handleClose}>
+                                                <Modal size="lg" show={lgShow4} onHide={() => setLgShow4(false)} aria-labelledby="contained-modal-title-vcenter" centered>
                                                     <Modal.Header closeButton>
-                                                        <Modal.Title>Modal heading</Modal.Title>
+                                                        <Modal.Title>Add Employments</Modal.Title>
 
                                                     </Modal.Header>
                                                     <Modal.Body>
                                                         <div>
                                                             <Form style={{ 'display': 'flex', 'placeContent': 'center' }}>
-                                                                <div style={{ 'marginRight': '1rem', 'width': '21.25%' }}>
+                                                                <div style={{ 'marginRight': '1rem', width:'54%'}}>
                                                                     <div>
                                                                         <Form.Group className="mb-3" controlId="formBasicText">
                                                                             <Form.Label>Company name / Workplace name</Form.Label>
@@ -310,15 +289,6 @@ export const CreateCV = () => {
                                                             </div>
                                                         </div>
                                                     </Modal.Body>
-                                                    <Modal.Footer>
-
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="primary" onClick={handleClose}>
-                                                            Save Changes
-                                                        </Button>
-                                                    </Modal.Footer>
                                                 </Modal>
                                             </Col>
                                         </Row>
