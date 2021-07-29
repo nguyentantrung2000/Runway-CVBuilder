@@ -23,13 +23,13 @@
     position:relative;
     display: flex;
     align-items: flex-end;
-    transition: .6s ease-out;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5) ;
+    border-radius: 15%;
+   
 }
 
 
 .CVBox:hover{
-    transform: translateY(15px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5) ;
 }
 
 
@@ -64,13 +64,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 15%;
 } */
 .CV{    
     width: 235px;
     height: 298px;
     flex: 0 1 200px;
-    border: 1px solid #000000;
-    box-sizing: border-box;
     margin: 2% 0 0 4%;
 }
 .CVfunction{
@@ -84,32 +83,32 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 20px;
+    margin: 10% 0 3% 0;
 }
 .buttonAdd{
     width: 400px;
     flex: 0 1 200px;
-    border: 1px solid #000000;
-    box-sizing: border-box;
     margin: 2% 0 0 4%;
 }
 .CVBoxAdd{
     width: 360px;
     height: 400px;
-    margin-top: 8%;
+    margin-top: 19%;
     background-color: #ffffff;
     border : 5px #426EF0 solid;
     transition: .6s ease-out;
+    border-radius: 15%;
 }
 .CVBoxAdd h1{
     font-size: 32px;
     font-family:  Maven Pro;
     text-align: center;
-    margin-top:45%;
+    margin-top:50%;
     color: #426EF0;
-
 }
 .CVBoxAdd:hover{
     opacity: 50%;
     transform: translateY(0);
     justify-content:space-around;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5) ;
 }

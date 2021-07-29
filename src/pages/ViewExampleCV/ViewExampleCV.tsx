@@ -3,7 +3,7 @@ import './ViewExampleCV.css'
 import { Button } from 'rmwc';
 import { useState } from "react";
 
-export const ViewExampleCV=()=> {
+export const ViewExampleCV = () => {
     const CVdatabase = [
         {
             CVSrc: "https://i-vn.joboko.com/images/thumb-cv/1080.jpg",
@@ -24,7 +24,7 @@ export const ViewExampleCV=()=> {
             CVSrc: "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2019/07/Man-Silhouette.jpg",
         },
     ]
-    const JobCVDatabase=[
+    const JobCVDatabase = [
         {
             CVSrc: "https://i-vn.joboko.com/images/thumb-cv/1080.jpg",
         },
@@ -43,7 +43,7 @@ export const ViewExampleCV=()=> {
         {
             CVSrc: "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2019/07/Man-Silhouette.jpg",
         },
-]
+    ]
     // render CV thứ currentNum
     const [currentNum, setNum] = useState(4)
     //render CV thứ currrentNumJob cho mục theo nghề nghiệp
@@ -54,7 +54,7 @@ export const ViewExampleCV=()=> {
         if (index >= 4) {
         }
         else {
-            return <img key={index} src={data.CVSrc} alt="" className="CV" onClick={() => showIndex(index)} />
+            return <img key={index} src={data.CVSrc} alt="" className="CV"  onClick={() => showIndex(index)} />
         }
     })
     let JobCVList = JobCV.map((data, index) => {
@@ -75,54 +75,54 @@ export const ViewExampleCV=()=> {
                 temp.length=4, sau đó cập nhật lại mảng CVList = temp;
                 */
                 let temp = CVdatabase.slice(0, currentNum + 1);
-                while(temp.length>4){
-                    temp.splice(0,1);
+                while (temp.length > 4) {
+                    temp.splice(0, 1);
                 }
-                setNum(currentNum+1);
+                setNum(currentNum + 1);
                 setCV(temp);
                 break;
             case 'Decrease HotCV':
                 if (currentNum === 4) {
                 }
                 else {
-                  let temp=CVdatabase.splice(0,currentNum-1)
-                  while(temp.length>4){
-                      temp.splice(0,1);
-                  }
-                    setNum(currentNum-1);
+                    let temp = CVdatabase.splice(0, currentNum - 1)
+                    while (temp.length > 4) {
+                        temp.splice(0, 1);
+                    }
+                    setNum(currentNum - 1);
                     setCV(temp);
                     return currentNum;
-                  
+
                 }
                 break;
-                case 'Decrease JobCV':
-                    if (currentNumJob === 4) {
+            case 'Decrease JobCV':
+                if (currentNumJob === 4) {
+                }
+                else {
+                    let temp = JobCVDatabase.splice(0, currentNumJob - 1)
+                    while (temp.length > 4) {
+                        temp.splice(0, 1);
                     }
-                    else {
-                      let temp=JobCVDatabase.splice(0,currentNumJob-1)
-                      while(temp.length>4){
-                          temp.splice(0,1);
-                      }
-                        setNumJob(currentNumJob-1);
-                        setJobCV(temp);
-                        return currentNumJob;
-                      
-                    }
-                    break;   
-                    case 'Increase JobCV':
-                        let temp2 = JobCVDatabase.slice(0, currentNumJob + 1);
-                        while(temp2.length>4){
-                            temp2.splice(0,1);
-                        }
-                        setNumJob(currentNumJob+1);
-                        setJobCV(temp2);
-                        break;
+                    setNumJob(currentNumJob - 1);
+                    setJobCV(temp);
+                    return currentNumJob;
+
+                }
+                break;
+            case 'Increase JobCV':
+                let temp2 = JobCVDatabase.slice(0, currentNumJob + 1);
+                while (temp2.length > 4) {
+                    temp2.splice(0, 1);
+                }
+                setNumJob(currentNumJob + 1);
+                setJobCV(temp2);
+                break;
         }
     }
     return (
         <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
             <h1 className="category">
-                Các mẫu hot
+                High Rated CV
             </h1>
             <div className="viewCVfunction">
                 <Button onClick={() => ViewCV('Decrease HotCV')}>Left</Button>
@@ -133,11 +133,14 @@ export const ViewExampleCV=()=> {
                 <Button onClick={() => ViewCV('Increase HotCV')}>Right</Button>
             </div>
             <h1 className="category">
-                Theo nghề nghiệp
+                Job CV
             </h1>
             <div className="viewCVfunction">
                 <Button onClick={() => ViewCV('Decrease JobCV')}>Left</Button>
-                {JobCVList}
+                <div className="CVList">
+                    {JobCVList}
+
+                </div>
                 <Button onClick={() => ViewCV('Increase JobCV')}>Right</Button>
             </div>
         </div>
