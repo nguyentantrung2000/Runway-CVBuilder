@@ -1,5 +1,6 @@
 import './UserCV.css';
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 export const UserCV = () => {
     const UserCVdatabase = [
@@ -30,7 +31,7 @@ export const UserCV = () => {
                     <div className="button-Hover">
                         <div className="buttonDiv">
                             <Button variant="outline-primary">View</Button>{' '}
-                            <Button variant="outline-success">Edit</Button>{' '}
+                            <NavLink to={{pathname:"/createcv"}}><Button variant="outline-success">Edit</Button>{' '}</NavLink>
                             <Button variant="outline-danger">Delete</Button>{' '}
                         </div>
 

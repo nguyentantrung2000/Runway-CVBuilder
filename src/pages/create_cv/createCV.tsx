@@ -3,12 +3,16 @@ import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Bu
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { CreateSkill } from '../../components/create_skill_popup/create_skill'
 import { useState } from 'react'
-
+import {NavLink, useLocation} from 'react-router-dom'
 export const CreateCV = () => {
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
     const [lgShow3, setLgShow3] = useState(false);
     const [lgShow4, setLgShow4] = useState(false);
+    // lấy dữ liệu được truyền từ component khác
+    let location = useLocation();
+    console.log(location.state);
+    //////////
 
     return (
         <div className='from' style={{ 'paddingTop': '6rem' }}>
@@ -307,7 +311,7 @@ export const CreateCV = () => {
                         </Row>
                         <Row style={{ 'marginLeft': '5rem', 'marginTop': '2rem' }} >
                             <Col >  <Button style={{ 'width': '9rem' }} variant="outline-primary">Export PDF</Button>{' '}</Col>
-                            <Col> <Button style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '}</Col>
+                             <Col><NavLink to={{pathname:"/createcv2"}}> <Button style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '}</NavLink></Col>
                         </Row>
                     </Col>
                 </Row>

@@ -2,7 +2,9 @@
 import './ViewExampleCV.css'
 import { Button } from 'rmwc';
 import { useState } from "react";
-
+import { NavLink } from "react-router-dom"
+import { Modal } from 'react-bootstrap'
+import { CreateEducation } from '../../components/create_education_popup/create_education';
 export const ViewExampleCV = () => {
     const CVdatabase = [
         {
@@ -54,18 +56,30 @@ export const ViewExampleCV = () => {
         if (index >= 4) {
         }
         else {
-            return <img key={index} src={data.CVSrc} alt="" className="CV"  onClick={() => showIndex(index)} />
+            return (<NavLink key={index} to={{ pathname: "/createcv", state: { id: index } }}><img src={data.CVSrc} alt="" className="CV" />
+            </NavLink>)
         }
     })
     let JobCVList = JobCV.map((data, index) => {
         if (index >= 4) {
         }
         else {
-            return <img key={index} src={data.CVSrc} alt="" className="CV" onClick={() => showIndex(index)} />
+            return <img key={index} src={data.CVSrc} alt="" className="CV" onClick={() => showIndex(true)} />
         }
     })
-    function showIndex(String: any) {
-        console.log(String);
+    function showIndex(String: boolean) {
+        return (
+            <div>
+
+                <Modal show={String}>
+                    <Modal.Body>
+                    </Modal.Body>
+                </Modal>
+
+            </div>
+        )
+
+
     }
 
     function ViewCV(String: any) {
