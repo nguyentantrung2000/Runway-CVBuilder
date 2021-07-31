@@ -1,6 +1,7 @@
 import './LandingPage.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Col, Container, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 export const LandingPage = () => {
     return(
@@ -14,7 +15,7 @@ export const LandingPage = () => {
                     <br></br>
                     <h3>You want to design the perfect CV but don't know how. Use me now for success !</h3>
                     <br></br>
-                    <Button variant="outline-primary">Get Started</Button>
+                    <NavLink to={{pathname:"/viewexcv"}}><Button variant="outline-primary">Get Started</Button></NavLink>
                     </Col>
                     
                     <Col>

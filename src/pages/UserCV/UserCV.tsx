@@ -49,9 +49,9 @@ export const UserCV = () => {
             <div className="CVList">
                 {CVlist}
                 <div>
-                    <div className="CVBoxAdd" onClick={()=>test()}>
+                <NavLink to={{pathname:"/viewexcv"}}><div className="CVBoxAdd" onClick={()=>test()}>
                         <h1> +Add new CV</h1>
-                    </div>
+                    </div></NavLink>
                 </div>
             </div>
         </div>
