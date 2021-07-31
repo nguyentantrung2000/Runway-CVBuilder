@@ -7,17 +7,24 @@ export const LandingPage = () => {
         <div style={{ 'paddingTop': '5rem' }}>
             <Container>
                 <Row>
-                    <Col style={{marginRight:'-18%', marginTop:'5rem'}}>
+                    <Col style={{ marginTop:'5rem'}}>
                     <h1>Runway CV Builder</h1>
                     <br></br>
-                    <h2>Build your future</h2>
+                    <p style={{color:'#6D6C6C', fontSize:'xx-large'}}>Build your future</p>
                     <br></br>
-                    <h3>You want to design the perfect CV but don't know how. Use me now for success !</h3>
+                    <p style={{fontSize:'x-large'}}>You want to design the perfect CV but don't know how. Use me now for success !</p>
                     <br></br>
-                    <Button variant="outline-primary">Get Started</Button>
+                    <Button style={{width:'13rem'}} variant="outline-primary"><b>Get Started</b></Button>
                     </Col>
                     
                     <Col>
+                    <div className="p1">
+                    <svg width="757" height="726" viewBox="0 0 757 726" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1137 292.731C1137 584.188 679.39 967.804 491.914 523.666C173.12 189.718 0 455.422 0 163.964C0 -127.493 317.697 -235 609.196 -235C900.694 -235 1137 1.2731 1137 292.731Z" fill="#426EF0" fill-opacity="0.7"/>
+                    </svg>
+
+                    </div>
+                    <div className="p2">
                     <svg style={{marginLeft:'20rem'}} width="441" height="441" viewBox="0 0 441 441" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.7" d="M360.359 362.943C283.113 401.636 157.887 401.636 80.6412 362.943C3.39566 324.25 3.40448 261.513 80.6412 222.82C157.878 184.126 283.113 184.126 360.359 222.82C437.604 261.513 437.595 324.25 360.359 362.943Z" fill="#F5F5F5"/>
 <path d="M86.5593 230.37L117.544 212.483V146.042L86.5593 163.938V230.37Z" fill="#E0E0E0"/>
@@ -189,10 +196,11 @@ export const LandingPage = () => {
 <path d="M195.442 155.091C195.442 149.552 199.332 147.303 204.13 150.072L207.129 151.836C211.927 154.606 215.808 161.344 215.808 166.883V168.374C213.038 169.256 209.545 168.797 205.744 166.61C201.577 164.042 198.053 160.554 195.442 156.414V155.091Z" fill="#FAFAFA"/>
 <path d="M215.393 193.325L192.849 180.307C191.897 179.76 191.085 180.148 191.085 181.189C191.133 181.773 191.317 182.338 191.624 182.837C191.93 183.337 192.35 183.757 192.849 184.064L215.393 197.083C216.355 197.63 217.157 197.241 217.157 196.201C217.11 195.616 216.926 195.051 216.62 194.552C216.313 194.052 215.893 193.632 215.393 193.325Z" fill="#E0E0E0"/>
 </svg>
-
+</div>
                     </Col>
                 </Row>
             </Container>
+            
         </div>
     )
 }

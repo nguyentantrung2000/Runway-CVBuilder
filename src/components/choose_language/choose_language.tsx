@@ -5,10 +5,9 @@ import './choose_language.css'
 export function ChooseLanguage() {
     return (
         <>
-            <Container>
-                <Row>
-                    <Col style={{'marginTop':'2.5rem'}}><h4>Vietnamese</h4></Col>
-                    <Col>   <input
+            <div style={{display:'flex'}}>
+                    <h4 style={{alignSelf:'center'}}>Vietnamese</h4>
+                       <input
                         className="react-switch-checkbox"
                         id={`react-switch-new`}
                         type="checkbox"
@@ -18,12 +17,9 @@ export function ChooseLanguage() {
                             htmlFor={`react-switch-new`}
                         >
                             <span className={`react-switch-button`} />
-                        </label></Col>
-                    <Col style={{'marginTop':'2.5rem'}}><h4>English</h4></Col>
-                </Row>
-            </Container>
-            
-
+                        </label>
+                    <h4 style={{alignSelf:'center', marginLeft:'0.5rem'}}>English</h4>
+            </div>
         </>
     )
 }
