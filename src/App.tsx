@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { HomePage } from './pages/home_page/HomePage';
 import { NavBar } from './components/nav_bar/Navbar';
 import { UserCV } from './pages/UserCV/UserCV';
+import {ChooseLanguage} from './components/choose_language/choose_language'
 import firebase from 'firebase';
 import { config } from './firebase.config';
 import { ViewExampleCV } from './pages/ViewExampleCV/ViewExampleCV'
@@ -14,17 +15,21 @@ firebase.initializeApp(config);
 
 function App() {
   return (
-    <React.Fragment>
-      <NavBar></NavBar>
-      <Router>
-        <Switch>
-          <Route path="/createcv" component={CreateCV} />
-          <Route path="/createcv2" component={CreateCV2} />
-          <Route path="/usercv" component={UserCV} />
-          <Route path="/viewexcv" component={ViewExampleCV} />
-        </Switch>
-      </Router>
-    </React.Fragment>
+    // <React.Fragment>
+    //   <NavBar></NavBar>
+    //   <ChooseLanguage/>
+    //   <Router>
+    //     <Switch>
+    //       <Route path="/createcv" component={CreateCV} />
+    //       <Route path="/createcv2" component={CreateCV2} />
+    //       <Route path="/usercv" component={UserCV} />
+    //       <Route path="/viewexcv" component={ViewExampleCV} />
+    //     </Switch>
+    //   </Router>
+    // </React.Fragment>
+    <>
+      <ChooseLanguage/>
+    </>
   );
 }
 
