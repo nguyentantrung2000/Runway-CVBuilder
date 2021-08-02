@@ -2,9 +2,10 @@ import './HomePage.css';
 import firebase from 'firebase/app';
 import { useAuthState } from '../../hooks/auth.hook';
 import { Avatar, Button, Icon } from 'rmwc';
+import firestore from'@react-firebase/firestore'
 
 export const HomePage=()=> {
-
+    const firestore=firebase.firestore()
     const authState = useAuthState();
     const gIcon = <Icon
         icon={{

@@ -193,7 +193,7 @@ export const LandingPage = () => {
                     </Col>
                 </Row>
             </Container>
-            <Image src='../../images/ImageLanding.png' fluid />
+            <Image src='../../images/ImageLanding.png'  fluid />
         </div>
     )
 }
