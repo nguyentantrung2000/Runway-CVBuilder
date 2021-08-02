@@ -25,7 +25,6 @@ function App() {
           <Route path="/createcv2" component={CreateCV2} />
           <Route path="/usercv" component={UserCV} />
           <Route path="/viewexcv" component={ViewExampleCV} />
-          <Route path="/ChooseLanguage" component={ChooseLanguage} />
         </Switch>
       </Router>
 
