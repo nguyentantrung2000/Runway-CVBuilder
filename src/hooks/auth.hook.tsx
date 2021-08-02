@@ -16,7 +16,8 @@ export function useAuthState() {
                     name: authState.displayName,
                     pictureURL: authState.photoURL,
                     OwnedCV:[],
-                    
+                    CompanyList:[],
+
 
                 })
             }
