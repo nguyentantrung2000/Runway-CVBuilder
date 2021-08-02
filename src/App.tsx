@@ -16,21 +16,21 @@ firebase.initializeApp(config);
 
 function App() {
   return (
-    <React.Fragment>
-      <NavBar></NavBar>
-      <Router>
-        <Switch>
-          <Route path="/landing" component={LandingPage}/>
-          <Route path="/createcv" component={CreateCV} />
-          <Route path="/createcv2" component={CreateCV2} />
-          <Route path="/usercv" component={UserCV} />
-          <Route path="/viewexcv" component={ViewExampleCV} />
-        </Switch>
-      </Router>
+    <>
+     <React.Fragment>
+       <NavBar></NavBar>
+       <Router>
+         <Switch>
+           <Route path="/" exact component={LandingPage}/>
+           <Route path="/createcv" component={CreateCV} />
+           <Route path="/createcv2" component={CreateCV2} />
+           <Route path="/usercv" component={UserCV} />
+           <Route path="/viewexcv" component={ViewExampleCV} />
+         </Switch>
+       </Router>
+     </React.Fragment>
+</>
 
-
-    </React.Fragment>
   );
 }
-
 export default App;

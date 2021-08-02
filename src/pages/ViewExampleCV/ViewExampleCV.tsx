@@ -64,7 +64,8 @@ export const ViewExampleCV = () => {
         if (index >= 4) {
         }
         else {
-            return <img key={index} src={data.CVSrc} alt="" className="CV" onClick={() => showIndex(true)} />
+            return (<NavLink key={index} to={{ pathname: "/createcv", state: { id: index } }}><img src={data.CVSrc} alt="" className="CV" />
+            </NavLink>)
         }
     })
     function showIndex(String: boolean) {
