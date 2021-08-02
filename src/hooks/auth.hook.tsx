@@ -9,11 +9,15 @@ export function useAuthState() {
     }
     else {
         firestore.collection("Users").doc(authState.uid).get().then(data => {
+            /// kiểm tra dữ liệu user tồn tại thì không cập nhật lại
             if (!data.exists) {
                 firebase.firestore().collection("Users").doc(authState.uid).set({
                     id: authState.uid,
                     name: authState.displayName,
                     pictureURL: authState.photoURL,
+                    OwnedCV:[],
+                    
+
                 })
             }
             else {

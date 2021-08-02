@@ -5,7 +5,6 @@ import { Avatar, Button, Icon } from 'rmwc';
 import firestore from'@react-firebase/firestore'
 
 export const HomePage=()=> {
-    const firestore=firebase.firestore()
     const authState = useAuthState();
     const gIcon = <Icon
         icon={{
