@@ -82,6 +82,27 @@ export const ViewExampleCV = () => {
 
 
     }
+    async function getAPI(){
+        //// Gọi API GET từ server
+        await (await fetch("http://localhost:3001/getAPI")).text().then(data=>{
+            console.log(data);
+        })
+    }
+    async function postWithBodyAPI() {
+        ////gọi API POST từ server có truyền body 
+        await fetch("http://localhost:3001/testPostWithBody", {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({ json: "alo" }),
+        //// API này respon về một text nên phải biến nó thành dạng text
+        }).then(res=>{
+            return res.text()
+        }).then(data=>{
+            console.log(data);
+        })
+    }
 
     function ViewCV(String: any) {
         switch (String) {
