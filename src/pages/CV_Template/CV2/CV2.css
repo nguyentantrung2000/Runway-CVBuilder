@@ -1,0 +1,57 @@
+.bodyCV2{
+    margin:0 0 0 20%;
+    border: 1px solid black;
+}
+
+.avatar{
+    width: 10%;
+    height: 20%;
+    border-radius: 50%;
+}
+.CVHeader{
+
+    display: flex;
+    flex-direction: row;
+}
+.infomation{
+    margin:0 0 0 5%;
+    display: flex;
+    flex-direction: column;
+}
+.CVmain{
+    margin-top: 2%;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+}
+.CVmainpart1{
+width: 30%;
+}
+.CVmainpart2{
+    margin:0 0 0 4%;
+    width: 40%;
+}
+.customerName{
+    margin:0 0 0 4% ;
+    color: #426EF0;
+}
+.vl{
+    margin-left: 6%;
+    border:1px solid #426EF0;
+}
+.vlmain{
+    margin-left:9.5%;
+    border:1px solid #426EF0;
+}
+.userinfomation{
+    text-align: right;
+}
+.education{
+    font-weight: bold;
+    font-size: 16px;
+}
+.schooldate{
+    align-items: flex-end;
+    font-size: 16px;
+    color:gray;
+}

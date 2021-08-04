@@ -12,6 +12,7 @@ import { ViewExampleCV } from './pages/ViewExampleCV/ViewExampleCV'
 import { CreateCV2 } from './pages/create_cv2/CreateCV2'
 import {CreateCV} from './pages/create_cv/createCV'
 import { LandingPage } from './pages/landing_page/LandingPage';
+import { CV2 } from './pages/CV_Template/CV2/CV2';
 firebase.initializeApp(config);
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
          <Switch>
            <Route path="/" exact component={LandingPage}/>
            <Route path="/createcv" component={CreateCV} />
+           <Route path="/cv2" component={CV2} />
            <Route path="/createcv2" component={CreateCV2} />
            <Route path="/usercv" component={UserCV} />
            <Route path="/viewexcv" component={ViewExampleCV} />
