@@ -1,39 +1,58 @@
 .bodyCV2{
     margin:0 0 0 20%;
-    border: 1px solid black;
+    width: 50%;
+    background-color: black;
+    font-family: Maven Pro;
+    color: #9099a0;
 }
 
 .avatar{
-    width: 10%;
+    width: 15%;
     height: 20%;
-    border-radius: 50%;
+    padding: 2% 0 1% 1%;
 }
 .CVHeader{
-
     display: flex;
     flex-direction: row;
+    margin:0 0 0 0;
+    background-color: #fff;
+    font-family: Maven Pro;
+    
 }
 .infomation{
-    margin:0 0 0 5%;
+    padding: 2% 2% 2% 5%;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .CVmain{
-    margin-top: 2%;
     width: 100%;
     display:flex;
     flex-direction: row;
+    background-color: #3d3e42;
+    color: #9099a0;
 }
 .CVmainpart1{
-width: 30%;
+    width: 40%;
+    margin: 1% 0 0 3%;
+    font-family: Maven Pro;
 }
 .CVmainpart2{
-    margin:0 0 0 4%;
-    width: 40%;
+    margin:1% 0 0 4%;
+    width: 60%;
 }
 .customerName{
+    margin:10% 0 0 4% ;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: left;
+
+    
+}
+.customerJobtitle{
+    font-size: 20px;
     margin:0 0 0 4% ;
-    color: #426EF0;
+    
 }
 .vl{
     margin-left: 6%;
@@ -46,12 +65,40 @@ width: 30%;
 .userinfomation{
     text-align: right;
 }
-.education{
+
+.skill{
     font-weight: bold;
-    font-size: 16px;
+
+    width: 100%;
 }
-.schooldate{
-    align-items: flex-end;
+.fielddate{
+    width: 100%;
     font-size: 16px;
-    color:gray;
+    color: #9099a0;
+    text-align: right;
+
+}
+.infoIcon{
+    margin-left: 1%;
+}
+.infoTitle{
+    color: #4FD132;
+    text-decoration: underline;
+    font-size: 30px;
+}
+.subTitle{
+    color: white;
+    font-family: Maven Pro;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+}
+.jobBox{
+    width: 100%;
+    padding: 0 2% 2% 0;
+}
+.BioBox{
+    width: 100%;
+    padding: 0 2% 0 0;
+    text-align: left;
 }
