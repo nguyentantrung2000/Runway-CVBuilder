@@ -25,7 +25,6 @@ async  deleteCV(id, CVID) {
     }
     return 0;
 }   
-
 //Sửa
 }
 module.exports=Database;
