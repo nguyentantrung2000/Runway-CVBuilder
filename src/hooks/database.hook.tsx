@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import firebase from 'firebase';
 
-export function useAuthState() {
+export async function saveCVInfo() {
     const firestore = firebase.firestore();
-
 
     return
 }

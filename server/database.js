@@ -8,26 +8,60 @@ admin.initializeApp({
 
 const firestore = admin.firestore();
 
- class Database{
+class Database {
 
-//Thêm
+    //Thêm
+    async addCV(UserID, CVID) {
+        try {
+            await firestore.collection("Users").doc(UserID).update({
+                OwnedCV: admin.firestore.FieldValue.arrayUnion(CVID)
+            })
+        }
+        catch (err) {
 
-
-//Xóa
-async  deleteCV(id, CVID) {
-    try{
-        await firestore.collection("Users").doc(id).update({
-            OwnedCV:admin.firestore.FieldValue.delete(CVID),
-        })
-    }catch(err){
-        console.log(err);
+        }
+        return 0;
     }
-    return 0;
-}   
 
-//Sửa
+    //Xóa
+    async deleteCV(id, CVID) {
+        try {
+            await firestore.collection("Users").doc(id).update({
+                OwnedCV: admin.firestore.FieldValue.arrayRemove(CVID),
+            })
+        } catch (err) {
+
+        }
+        return 0;
+    }
+
+    //Sửa
+
+
+    ////Lưu thông tin CV
+    async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments) {
+        try {
+            await firestore.collection("CV").doc(CVID).set({
+                Fname: Fname || null,
+                Email: Email || null,
+                dob: dob || null,
+                phone: phone || null,
+                Address: Address || null,
+                Country: Country || null,
+                Bio: Bio || null,
+                Skills: Skills || null,
+                Hobbies: Hobbies || null,
+                Educations: Educations || null,
+                Employments: Employments || null,
+            })
+        } catch (err) {
+
+        }
+        return 0;
+    }
 }
-module.exports=Database;
+
+module.exports = Database;
 
 
 

@@ -32,8 +32,31 @@ app.post("/deleteCV",async (req,res)=>{
     let result=await db.deleteCV(id,CVID);
     res.send("Xóa thành công");
   }catch(err){
-    console.log(err);
+  
   }
 })
 
+app.post("/addCV",async (req,res)=>{
+  const {UserID,CVID}=req.body;
+  try{
+    let result=await db.addCV(UserID,CVID);
+    res.send("Thêm CV thành công");
+  }catch(err){
+   
+  }
+})
 ///////// END CV LIST API //////////////////////////////////
+
+
+///////// CV  API //////////////////////////////////
+
+app.post("/saveCV",async(req,res)=>{
+  const {CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio}=req.body
+  try{
+    let result=await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio,[],[],[],[]);
+    res.send("Lưu thông tin thành công");
+  }catch(err){
+    console.log(err)
+  }
+})
+///////// END CV  API //////////////////////////////////
