@@ -4,6 +4,8 @@ const PORT = process.env.PORT || 3001;
 const body=require('body-parser')
 const cors = require("cors");
 const app = express();
+const Database=require("./database");
+const db= new Database();
 app.use(cors());
 app.use(body.json());
 app.listen(PORT, () => {
@@ -23,3 +25,14 @@ app.post("/testPostWithBody", async (req,res)=>{
 app.get("/getAPI", async (req,res)=>{
     res.send("Hello from server"); 
 })
+///////// CV LIST API //////////////////////////////////
+app.post("/deleteCV",async (req,res)=>{
+  const {id,CVID}=req.body;
+  try{
+    let result=await
+  }catch(err){
+    console.log(err);
+  }
+})
+
+///////// END CV LIST API //////////////////////////////////
