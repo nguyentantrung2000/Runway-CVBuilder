@@ -29,7 +29,8 @@ app.get("/getAPI", async (req,res)=>{
 app.post("/deleteCV",async (req,res)=>{
   const {id,CVID}=req.body;
   try{
-    let result=await
+    let result=await db.deleteCV(id,CVID);
+    res.send("Xóa thành công");
   }catch(err){
     console.log(err);
   }
