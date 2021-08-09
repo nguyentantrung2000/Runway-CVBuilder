@@ -19,7 +19,6 @@ async  deleteCV(id, CVID) {
     try{
         await firestore.collection("Users").doc(id).update({
             OwnedCV:admin.firestore.FieldValue.delete(CVID),
-        })
     }catch(err){
         console.log(err);
     }
