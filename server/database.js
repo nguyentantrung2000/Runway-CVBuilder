@@ -43,6 +43,7 @@ class Database {
         try {
             await firestore.collection("CV").doc(CVID).set({
                 Fname: Fname || null,
+                Lname:Lname||null,
                 Email: Email || null,
                 dob: dob || null,
                 phone: phone || null,
