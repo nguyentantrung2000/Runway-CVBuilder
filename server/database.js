@@ -53,31 +53,16 @@ class Database {
     return 0;
   }
 
-  async userAddCV(UserID, CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments) {
-    try {
-      await firestore.collection("CV").doc(CVID).set({
-        Fname: Fname || null,
-        Lname: Lname || null,
-        Email: Email || null,
-        dob: dob || null,
-        phone: phone || null,
-        Address: Address || null,
-        Country: Country || null,
-        Bio: Bio || null,
-        Skills: Skills || null,
-        Hobbies: Hobbies || null,
-        Educations: Educations || null,
-        Employments: Employments || null,
+  getAllOwnerCV(UserID){
+      console.log(UserID);
+      return firestore.collection("Users").doc(UserID)
+      .get().then(data=>{
+      return data.data().OwnedCV;
       })
-      await firestore.collection("Users").doc(UserID).update({
-        OwnedCV: admin.firestore.FieldValue.arrayUnion(CVID)
-      });
-    }
-    catch (err) {
-      console.log("Lỗi")
-    }
-    return 0;
   }
+
+
+
 
   //Xóa
   async deleteCV(id, CVID) {
