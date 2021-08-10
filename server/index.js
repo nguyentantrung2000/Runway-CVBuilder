@@ -41,8 +41,17 @@ app.post("/addCV", async (req, res) => {
   try {
     let result = await db.addCV(UserID, CVID);
     res.send("Thêm CV thành công");
-  } catch (err) {
+  }catch(err){
+  }
+})
 
+app.post("/deleteCV",async (req,res)=>{
+  const {id,CVID}=req.body;
+  try{
+    let result=await db.deleteCV(id,CVID);
+    res.send("Xóa thành công");
+  }catch(err){
+  
   }
 })
 ///////// END CV LIST API //////////////////////////////////
@@ -51,13 +60,33 @@ app.post("/addCV", async (req, res) => {
 ///////// CV  API //////////////////////////////////
 
 app.post("/saveCV", async (req, res) => {
-  const { CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio } = req.body
+  const { CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio,Skills,Hobbies,Educations,Employments } = req.body
   try {
-    let result = await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, [], [], [], []);
+    let result = await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio,Skills,Hobbies,Educations,Employments);
     res.send("Lưu thông tin thành công");
   } catch (err) {
     console.log(err)
   }
 })
-
 ///////// END CV  API //////////////////////////////////
+////////// User CV ////////////////////
+// app.post("/userAddCV",async(req,res)=>{
+//   const {UserID,CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio}=req.body
+//   try{
+//     let result=await db.userAddCV(UserID,CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio);
+//     res.send("Tạo CV thành công =");
+//   }catch(err){
+//     console.log(err)
+//   }
+// })
+
+app.post("/userAddCV",async(req,res)=>{
+  const {UserID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments}=req.body
+  try{
+    let result=await db.addNewCV(UserID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments);
+    console.log("ahahaha")
+    res.send("Tạo CV mới thành công ");
+  }catch(err){
+    console.log(err)
+  }
+})
