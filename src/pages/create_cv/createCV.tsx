@@ -13,14 +13,13 @@ import {
   Modal,
   Overlay,
   OverlayTrigger,
-  Tooltip
+  Tooltip,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 // validate dữ liệu input
-
 
 export const CreateCV = () => {
   const [show1, setShow1] = useState(false);
@@ -48,30 +47,38 @@ export const CreateCV = () => {
                     <label>First Name</label>
                     <OverlayTrigger
                       placement="bottom"
-                      overlay={<Tooltip id="button-tooltip-2">Write your name without number</Tooltip>}
+                      overlay={
+                        <Tooltip id="button-tooltip-2">
+                          Write your name without number
+                        </Tooltip>
+                      }
                     >
-                    <InputGroup className="mb-3">
-                      <FormControl
-                        placeholder="Your text here"
-                        aria-label="Default"
-                        aria-describedby="inputGroup-sizing-default"
-                      />
-                    </InputGroup>
+                      <InputGroup className="mb-3">
+                        <FormControl
+                          placeholder="Đào Thùy"
+                          aria-label="Default"
+                          aria-describedby="inputGroup-sizing-default"
+                        />
+                      </InputGroup>
                     </OverlayTrigger>
                   </Col>
                   <Col>
                     <label>Last Name</label>
                     <OverlayTrigger
                       placement="bottom"
-                      overlay={<Tooltip id="button-tooltip-2">Write your name without number</Tooltip>}
+                      overlay={
+                        <Tooltip id="button-tooltip-2">
+                          Write your name without number
+                        </Tooltip>
+                      }
                     >
-                    <InputGroup className="mb-3">
-                      <FormControl
-                        placeholder="Your text here"
-                        aria-label="Default"
-                        aria-describedby="inputGroup-sizing-default"
-                      />
-                    </InputGroup>
+                      <InputGroup className="mb-3">
+                        <FormControl
+                          placeholder="Linh"
+                          aria-label="Default"
+                          aria-describedby="inputGroup-sizing-default"
+                        />
+                      </InputGroup>
                     </OverlayTrigger>
                   </Col>
                 </Row>
@@ -80,19 +87,23 @@ export const CreateCV = () => {
                     <label>Email</label>
                     <OverlayTrigger
                       placement="bottom"
-                      overlay={<Tooltip id="button-tooltip-2">Must have "@" or "."</Tooltip>}
+                      overlay={
+                        <Tooltip id="button-tooltip-2">
+                          Must have "@" or "."
+                        </Tooltip>
+                      }
                     >
-                    <InputGroup className="mb-3">
-                      <FormControl
-                        placeholder="Your text here"
-                        aria-label="Default"
-                        aria-describedby="inputGroup-sizing-default"
-                      />
-                    </InputGroup>
+                      <InputGroup className="mb-3">
+                        <FormControl
+                          placeholder="linhmilo123@gmail.com"
+                          aria-label="Default"
+                          aria-describedby="inputGroup-sizing-default"
+                        />
+                      </InputGroup>
                     </OverlayTrigger>
                   </Col>
                   <Col>
-                  <label>Date Of Birth</label>
+                    <label>Date Of Birth</label>
                     <InputGroup className="mb-3">
                       <FormControl
                         type="date"
@@ -102,40 +113,44 @@ export const CreateCV = () => {
                     </InputGroup>
                   </Col>
                   <Col>
-                  <label>Phone</label>
-                  <OverlayTrigger
+                    <label>Phone</label>
+                    <OverlayTrigger
                       placement="bottom"
-                      overlay={<Tooltip id="button-tooltip-2">Only input number</Tooltip>}
+                      overlay={
+                        <Tooltip id="button-tooltip-2">
+                          Only input number
+                        </Tooltip>
+                      }
                     >
-                    <InputGroup className="mb-3">
-                      <FormControl
-                        type="tel"
-                        pattern="[0-9]*"
-                        maxLength={13}
-                        placeholder="Your text here"
-                        aria-label="Default"
-                        aria-describedby="inputGroup-sizing-default"
-                      />
-                    </InputGroup>
+                      <InputGroup className="mb-3">
+                        <FormControl
+                          type="tel"
+                          pattern="[0-9]"
+                          maxLength={13}
+                          placeholder="0966.745.xxx"
+                          aria-label="Default"
+                          aria-describedby="inputGroup-sizing-default"
+                        />
+                      </InputGroup>
                     </OverlayTrigger>
                   </Col>
                 </Row>
                 <Row>
                   <Col xs={9}>
-                  <label>Address</label>
+                    <label>Address</label>
                     <InputGroup className="mb-3">
                       <FormControl
-                        placeholder="Your text here"
+                        placeholder="61 Tô Ngọc Vân, Tây Hồ, Hà Nội"
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                       />
                     </InputGroup>
                   </Col>
                   <Col>
-                  <label>Country</label>
+                    <label>Country</label>
                     <InputGroup className="mb-3">
                       <FormControl
-                        placeholder="Your text here"
+                        placeholder="Việt Nam"
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                       />
@@ -368,10 +383,21 @@ export const CreateCV = () => {
                                         controlId="formBasicText"
                                       >
                                         <Form.Label>From</Form.Label>
-                                        <Form.Control
-                                          type="text"
-                                          placeholder="Eg. your text here"
-                                        />
+                                        <OverlayTrigger
+                                          placement="bottom"
+                                          overlay={
+                                            <Tooltip id="button-tooltip-2">
+                                              Only input number
+                                            </Tooltip>
+                                          }
+                                        >
+                                          <InputGroup className="mb-3">
+                                            <Form.Control
+                                              type="text"
+                                              placeholder="Eg. your text here"
+                                            />
+                                          </InputGroup>
+                                        </OverlayTrigger>
                                       </Form.Group>
                                     </div>
                                     <div>
@@ -380,10 +406,21 @@ export const CreateCV = () => {
                                         controlId="formBasicText"
                                       >
                                         <Form.Label>To</Form.Label>
-                                        <Form.Control
-                                          type="text"
-                                          placeholder="Eg. your text here"
-                                        />
+                                        <OverlayTrigger
+                                          placement="bottom"
+                                          overlay={
+                                            <Tooltip id="button-tooltip-2">
+                                              Only input number
+                                            </Tooltip>
+                                          }
+                                        >
+                                          <InputGroup className="mb-3">
+                                            <Form.Control
+                                              type="text"
+                                              placeholder="Eg. your text here"
+                                            />
+                                          </InputGroup>
+                                        </OverlayTrigger>
                                       </Form.Group>
                                     </div>
                                   </div>
@@ -496,10 +533,21 @@ export const CreateCV = () => {
                                         controlId="formBasicText"
                                       >
                                         <Form.Label>From</Form.Label>
-                                        <Form.Control
-                                          type="text"
-                                          placeholder="Eg. your text here"
-                                        />
+                                        <OverlayTrigger
+                                          placement="bottom"
+                                          overlay={
+                                            <Tooltip id="button-tooltip-2">
+                                              Only input number
+                                            </Tooltip>
+                                          }
+                                        >
+                                          <InputGroup className="mb-3">
+                                            <Form.Control
+                                              type="text"
+                                              placeholder="Eg. your text here"
+                                            />
+                                          </InputGroup>
+                                        </OverlayTrigger>
                                       </Form.Group>
                                     </div>
                                     <div>
@@ -508,10 +556,21 @@ export const CreateCV = () => {
                                         controlId="formBasicText"
                                       >
                                         <Form.Label>To</Form.Label>
-                                        <Form.Control
-                                          type="text"
-                                          placeholder="Eg. your text here"
-                                        />
+                                        <OverlayTrigger
+                                          placement="bottom"
+                                          overlay={
+                                            <Tooltip id="button-tooltip-2">
+                                              Only input number
+                                            </Tooltip>
+                                          }
+                                        >
+                                          <InputGroup className="mb-3">
+                                            <Form.Control
+                                              type="text"
+                                              placeholder="Eg. your text here"
+                                            />
+                                          </InputGroup>
+                                        </OverlayTrigger>
                                       </Form.Group>
                                     </div>
                                   </div>
