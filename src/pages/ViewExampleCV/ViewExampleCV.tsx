@@ -3,8 +3,8 @@ import './ViewExampleCV.css'
 import { Button } from 'rmwc';
 import { useState } from "react";
 import { NavLink } from "react-router-dom"
-import { Modal } from 'react-bootstrap'
-import { CreateEducation } from '../../components/create_education_popup/create_education';
+import {useAuthState} from '../../hooks/auth.hook'
+import {createCV} from '../../hooks/database.hook'
 
 export const ViewExampleCV = () => {
     const CVdatabase = [
@@ -53,11 +53,13 @@ export const ViewExampleCV = () => {
     const [currentNumJob, setNumJob] = useState(4)
     const [JobCV, setJobCV] = useState(JobCVDatabase.slice(0, currentNumJob));
     const [CV, setCV] = useState(CVdatabase.slice(0, currentNum));
+    const authState=useAuthState()
+   
     let CVList = CV.map((data, index) => {
         if (index >= 4) {
         }
         else {
-            return (<NavLink key={index} to={{ pathname: "/createcv", state: { id: index } }}><img src={data.CVSrc} alt="" className="CV" />
+            return (<NavLink key={index} to={{ pathname: "/createcv", state: { id: index } }}><img src={data.CVSrc} alt="" className="CV" onClick={()=>createCV(authState?.uid)} />
             </NavLink>)
         }
     })
@@ -69,20 +71,7 @@ export const ViewExampleCV = () => {
             </NavLink>)
         }
     })
-    function showIndex(String: boolean) {
-        return (
-            <div>
 
-                <Modal show={String}>
-                    <Modal.Body>
-                    </Modal.Body>
-                </Modal>
-
-            </div>
-        )
-
-
-    }
     async function getAPI(){
         //// Gọi API GET từ server
         await (await fetch("http://localhost:3001/getAPI")).text().then(data=>{
@@ -162,7 +151,7 @@ export const ViewExampleCV = () => {
                 High Rated CV
             </h1>
             <div className="viewCVfunction">
-                <Button onClick={() => ViewCV('Decrease HotCV')}>Left</Button>
+                <Button onClick={()=>createCV(authState)}>Left</Button>
                 <div className="CVList">
                     {CVList}
 

@@ -11,22 +11,26 @@ const firestore = admin.firestore();
 class Database {
 
   //Thêm vào OwnerCV 
-  async addCV(UserID, CVID) {
+  async addCV(UserID) {
     try {
-      await firestore.collection("Users").doc(UserID).update({
-        OwnedCV: admin.firestore.FieldValue.arrayUnion(CVID)
+      let temp;
+      await firestore.collection("CV").add({temp:"TempCV"}).then(async data => {
+       return temp= data.id;
       })
+      await firestore.collection("Users").doc(UserID).update({
+        OwnedCV: admin.firestore.FieldValue.arrayUnion(temp),
+      })
+      return 0
     }
     catch (err) {
-
+        console.log(err);
     }
-    return 0;
   }
 
 
   async addNewCV(UserID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments) {
     try {
-      let temp ;
+      let temp;
       await firestore.collection("CV").add({
         Fname: Fname || null,
         Lname: Lname || null,
@@ -53,11 +57,11 @@ class Database {
     return 0;
   }
 
-  getAllOwnerCV(UserID){
-      console.log(UserID);
-      return firestore.collection("Users").doc(UserID)
-      .get().then(data=>{
-      return data.data().OwnedCV;
+  getAllOwnerCV(UserID) {
+    console.log(UserID);
+    return firestore.collection("Users").doc(UserID)
+      .get().then(data => {
+        return data.data().OwnedCV;
       })
   }
 
