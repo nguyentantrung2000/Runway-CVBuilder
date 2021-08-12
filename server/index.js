@@ -37,11 +37,12 @@ app.post("/deleteCV", async (req, res) => {
 })
 
 app.post("/addCV", async (req, res) => {
-  const { UserID, CVID } = req.body;
+  const { UserID } = req.body;
   try {
-    let result = await db.addCV(UserID, CVID);
+    let result = await db.addCV(UserID);
     res.send("Thêm CV thành công");
   } catch (err) {
+    
   }
 })
 
@@ -60,9 +61,9 @@ app.post("/deleteCV", async (req, res) => {
 ///////// CV  API //////////////////////////////////
 
 app.post("/saveCV", async (req, res) => {
-  const { CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio,Skills,Hobbies,Educations,Employments } = req.body
+  const { CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments } = req.body
   try {
-    let result = await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio,Skills,Hobbies,Educations,Employments);
+    let result = await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments);
     res.send("Lưu thông tin thành công");
   } catch (err) {
     console.log(err)

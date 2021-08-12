@@ -1,7 +1,6 @@
 import { useState } from "react";
 import firebase from 'firebase';
 const enviroment = "http://localhost:3001/";
-
 export async function saveCVInfo() {
         let CVID ="dNTVeMjZmmh5lZU70vNG"
         let Fname ="a"
@@ -33,6 +32,16 @@ export async function getOwnedCV() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ UserID: UserID })
+    })
+
+}
+export async function createCV(UserID:any){
+    await fetch(enviroment+"addCV",{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({UserID:UserID}),
     })
 
 }
