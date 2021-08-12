@@ -5,6 +5,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom"
 import { Modal } from 'react-bootstrap'
 import { CreateEducation } from '../../components/create_education_popup/create_education';
+
 export const ViewExampleCV = () => {
     const CVdatabase = [
         {
