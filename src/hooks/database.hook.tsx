@@ -1,7 +1,7 @@
 import { useState } from "react";
 import firebase from 'firebase';
 const enviroment = "http://localhost:3001/";
-
+const firestore=firebase.firestore();
 export async function saveCVInfo() {
         let CVID ="dNTVeMjZmmh5lZU70vNG"
         let Fname ="a"
