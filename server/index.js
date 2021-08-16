@@ -100,12 +100,3 @@ app.post("/getOwnedCV", async(req, res) => {
         console.log(err)
     }
 })
-app.post("/getOwnedCV", async(req, res) => {
-    const { CVID } = req.body
-    try {
-        let result = await db.geUserEdit(CVID);
-        res.json(result);
-    } catch (err) {
-        console.log(err)
-    }
-})

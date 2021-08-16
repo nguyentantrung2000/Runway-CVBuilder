@@ -64,12 +64,6 @@ class Database {
         return CVDetailList;
     }
 
-    async geUserEdit(CVID) {
-        await firestore.collection("CV").doc(CVID)
-            .get().then(data => {
-                return data.data();
-            })
-    }
 
     async getCVDetail(CVID) {
         let temp;
