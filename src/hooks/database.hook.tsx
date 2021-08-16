@@ -27,14 +27,19 @@ export async function saveCVInfo() {
 
 }
 export async function getOwnedCV(UserID:any) {
+    let result:any=[];
     await fetch(enviroment + "getOwnedCV", {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ UserID: UserID })
+    }).then(data=>{
+        return data.json();
+    }).then(res=>{
+        return result=res;
     })
-
+    return result
 }
 export async function createCV(UserID:any){
     await fetch(enviroment+"addCV",{

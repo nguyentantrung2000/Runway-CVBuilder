@@ -10,44 +10,44 @@ const firestore = admin.firestore();
 
 class Database {
 
-    //Thêm vào OwnerCV 
-    async addCV(UserID) {
-        try {
-            let temp;
-            let date = new Date().getDate()
-            let month = new Date().getMonth()
-            let year = new Date().getFullYear()
-            await firestore.collection("CV").add({
-                CVDetails: {
-                    Fname: null,
-                    Lname: null,
-                    Email: null,
-                    dob: null,
-                    phone: null,
-                    Address: null,
-                    Country: null,
-                    Bio: null,
-                    Skills: null,
-                    Hobbies: null,
-                    Educations: null,
-                    Employments: null,
-                },
-                CVthumnail: null,
-                CVImage: null,
-                dateCreated: `${month}/${date}/${year}`
+  //Thêm vào OwnerCV 
+  async addCV(UserID) {
+    try {
+      let temp;
+      let date=new Date().getDate()
+      let month=new Date().getMonth()
+      let year=new Date().getFullYear()
+      await firestore.collection("CV").add({
+        CVDetails: {
+          Fname: null,
+          Lname: null,
+          Email: null,
+          dob: null,
+          phone: null,
+          Address: null,
+          Country: null,
+          Bio: null,
+          Skills: null,
+          Hobbies: null,
+          Educations: null,
+          Employments: null,
+        },
+        CVThumbnail: null,
+        CVImage: null,
+        dateCreated:`${month}/${date}/${year}`
 
-            }).then(async data => {
-                return temp = data.id;
-            })
-            await firestore.collection("Users").doc(UserID).update({
-                OwnedCV: admin.firestore.FieldValue.arrayUnion(temp),
-            })
-            return 0
-        } catch (err) {
-            console.log(err);
-        }
-    }
+      }).then(async data => {
+        return temp = data.id;
+      })
+      await firestore.collection("Users").doc(UserID).update({
+        OwnedCV: admin.firestore.FieldValue.arrayUnion(temp),
+      })
+      return 0
+    }catch (err) {
+  
+  }
 
+}
 
     async getAllOwnerCV(UserID) {
         let CVList;
@@ -64,7 +64,35 @@ class Database {
         return CVDetailList;
     }
 
+  //Sửa
 
+
+  ////Lưu thông tin CV
+  async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage) {
+    try {
+      await firestore.collection("CV").doc(CVID).set({
+        CVDetails: {
+          Fname: Fname || null,
+          Lname: Lname || null,
+          Email: Email || null,
+          dob: dob || null,
+          phone: phone || null,
+          Address: Address || null,
+          Country: Country || null,
+          Bio: Bio || null,
+          Skills: Skills || null,
+          Hobbies: Hobbies || null,
+          Educations: Educations || null,
+          Employments: Employments || null,
+        },
+        CVThumbnail: CVThumbnail || null,
+        CVImage: CVImage || null,
+      })
+    } catch (err) {
+
+    }
+  }
+  
     async getCVDetail(CVID) {
         let temp;
         await firestore.collection("CV").doc(CVID).get().then(data => {
@@ -91,31 +119,7 @@ class Database {
 
 
     ////Lưu thông tin CV
-    async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVthumnail, CVImage) {
-        try {
-            await firestore.collection("CV").doc(CVID).set({
-                CVDetails: {
-                    Fname: Fname || null,
-                    Lname: Lname || null,
-                    Email: Email || null,
-                    dob: dob || null,
-                    phone: phone || null,
-                    Address: Address || null,
-                    Country: Country || null,
-                    Bio: Bio || null,
-                    Skills: Skills || null,
-                    Hobbies: Hobbies || null,
-                    Educations: Educations || null,
-                    Employments: Employments || null,
-                },
-                CVthumnail: CVthumnail || null,
-                CVImage: CVImage || null,
-            })
-        } catch (err) {
 
-        }
-        return 0;
-    }
 }
 
 module.exports = Database;
