@@ -11,6 +11,8 @@ export async function saveCVInfo() {
         let Address ="a"
         let Country ="a"
         let Bio ="a"
+        let CVThumbnail="a"
+        let CVImage="a"
         let Skills:any =[]
         let Hobbies:any =[]
         let Educations:any =[]
@@ -20,7 +22,7 @@ export async function saveCVInfo() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ CVID: CVID, Fname: Fname, Lname: Lname, Email: Email, dob: dob, phone: phone, Address: Address, Country: Country, Bio: Bio, Skills: Skills, Hobbies: Hobbies, Educations: Educations, Employments: Employments })
+            body: JSON.stringify({ CVID: CVID, Fname: Fname, Lname: Lname, Email: Email, dob: dob, phone: phone, Address: Address, Country: Country, Bio: Bio, Skills: Skills, Hobbies: Hobbies, Educations: Educations, Employments: Employments,CVThumbnail:CVThumbnail,CVImage:CVImage })
         })
 
 }
