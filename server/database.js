@@ -14,8 +14,30 @@ class Database {
   async addCV(UserID) {
     try {
       let temp;
-      await firestore.collection("CV").add({temp:"TempCV"}).then(async data => {
-       return temp= data.id;
+      let date=new Date().getDate()
+      let month=new Date().getMonth()
+      let year=new Date().getFullYear()
+      await firestore.collection("CV").add({
+        CVDetails: {
+          Fname: null,
+          Lname: null,
+          Email: null,
+          dob: null,
+          phone: null,
+          Address: null,
+          Country: null,
+          Bio: null,
+          Skills: null,
+          Hobbies: null,
+          Educations: null,
+          Employments: null,
+        },
+        CVthumnail: null,
+        CVImage: null,
+        dateCreated:`${month}/${date}/${year}`
+
+      }).then(async data => {
+        return temp = data.id;
       })
       await firestore.collection("Users").doc(UserID).update({
         OwnedCV: admin.firestore.FieldValue.arrayUnion(temp),
@@ -23,48 +45,32 @@ class Database {
       return 0
     }
     catch (err) {
-        console.log(err);
+      console.log(err);
     }
   }
 
 
-  async addNewCV(UserID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments) {
-    try {
-      let temp;
-      await firestore.collection("CV").add({
-        Fname: Fname || null,
-        Lname: Lname || null,
-        Email: Email || null,
-        dob: dob || null,
-        phone: phone || null,
-        Address: Address || null,
-        Country: Country || null,
-        Bio: Bio || null,
-        Skills: Skills || null,
-        Hobbies: Hobbies || null,
-        Educations: Educations || null,
-        Employments: Employments || null,
-      }).then(data => {
-        console.log(data.id)
-        return temp = data.id
-      })
-      await firestore.collection("Users").doc(UserID).update({
-        OwnedCV: admin.firestore.FieldValue.arrayUnion(temp)
-      });
-    }
-    catch (err) {
-    }
-    return 0;
-  }
-
-  getAllOwnerCV(UserID) {
-    console.log(UserID);
-    return firestore.collection("Users").doc(UserID)
+  async getAllOwnerCV(UserID) {
+    let CVList;
+    let CVDetailList = [];
+    CVList = await firestore.collection("Users").doc(UserID)
       .get().then(data => {
         return data.data().OwnedCV;
       })
+    for (let i = 0; i < CVList.length; i++) {
+      await firestore.collection("CV").doc(CVList[i]).get().then(data => {
+        return CVDetailList.push(data.data())
+      })
+    }
+    return CVDetailList;
   }
-
+  async getCVDetail(CVID) {
+    let temp;
+    await firestore.collection("CV").doc(CVID).get().then(data => {
+      return temp = data.data();
+    })
+    return
+  }
 
 
 
@@ -84,21 +90,25 @@ class Database {
 
 
   ////Lưu thông tin CV
-  async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments) {
+  async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVthumnail, CVImage) {
     try {
       await firestore.collection("CV").doc(CVID).set({
-        Fname: Fname || null,
-        Lname: Lname || null,
-        Email: Email || null,
-        dob: dob || null,
-        phone: phone || null,
-        Address: Address || null,
-        Country: Country || null,
-        Bio: Bio || null,
-        Skills: Skills || null,
-        Hobbies: Hobbies || null,
-        Educations: Educations || null,
-        Employments: Employments || null,
+        CVDetails: {
+          Fname: Fname || null,
+          Lname: Lname || null,
+          Email: Email || null,
+          dob: dob || null,
+          phone: phone || null,
+          Address: Address || null,
+          Country: Country || null,
+          Bio: Bio || null,
+          Skills: Skills || null,
+          Hobbies: Hobbies || null,
+          Educations: Educations || null,
+          Employments: Employments || null,
+        },
+        CVthumnail: CVthumnail || null,
+        CVImage: CVImage || null,
       })
     } catch (err) {
 
