@@ -11,6 +11,8 @@ export async function saveCVInfo() {
         let Address ="a"
         let Country ="a"
         let Bio ="a"
+        let CVThumbnail="a"
+        let CVImage="a"
         let Skills:any =[]
         let Hobbies:any =[]
         let Educations:any =[]
@@ -20,20 +22,24 @@ export async function saveCVInfo() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ CVID: CVID, Fname: Fname, Lname: Lname, Email: Email, dob: dob, phone: phone, Address: Address, Country: Country, Bio: Bio, Skills: Skills, Hobbies: Hobbies, Educations: Educations, Employments: Employments })
+            body: JSON.stringify({ CVID: CVID, Fname: Fname, Lname: Lname, Email: Email, dob: dob, phone: phone, Address: Address, Country: Country, Bio: Bio, Skills: Skills, Hobbies: Hobbies, Educations: Educations, Employments: Employments,CVThumbnail:CVThumbnail,CVImage:CVImage })
         })
 
 }
-export async function getOwnedCV() {
-        let UserID = " "
+export async function getOwnedCV(UserID:any) {
+    let result:any=[];
     await fetch(enviroment + "getOwnedCV", {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ UserID: UserID })
+    }).then(data=>{
+        return data.json();
+    }).then(res=>{
+        return result=res;
     })
-
+    return result
 }
 export async function createCV(UserID:any){
     await fetch(enviroment+"addCV",{

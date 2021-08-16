@@ -1,155 +1,184 @@
 import "./CV2.css"
 import * as Icon from 'react-bootstrap-icons'
 export function CV2() {
-    const CV = {
-        UserInfo: {
-            Avatar: "https://cdn.3ind.com/telegram-tg143840.jpg",
-            Name: "Nguyễn Hoàng Trung",
-            Phone: "0983528454",
-            Dob: "2/30/2000",
-            Address: "108 Dao Duy Anh streetward 9Phu Nhuan district",
-            Country: "Viet Nam",
-            Email: "trungdoublelift@gmail.com",
-            JobTitle: "Lập trình viên",
-
-        },
-        Bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
-        Education: [{
-            Edu: "THPT",
-            From: "2/12/2015",
-            To: "2/12/2018",
-            Degree: "Bằng tốt nghiệp THPT",
-            SchoolName: "THPT Bình Phú",
-        },
-        {
-            Edu: "Đại Học",
-            From: "3/12/2018",
-            To: "3/12/2022",
-            Degree: "IT",
-            SchoolName: "Hoa Sen University",
-        },
-        ],
-        Skill: [{
-            SkillName: "Làm việc nhóm",
-            Level: " Expert",
-        },
-        {
-            SkillName: "Coding",
-            Level: "Average",
-        },
-        {
-            SkillName: "Thuyết trình",
-            Level: "Beginner",
-        },],
-        Hobbies: ["Chơi game", "Đi ngủ", "Đi ăn"],
-        Employments: [{
-            WorkPlace: "Công ty TNHH Rạp xiếc trung ương",
-            From: "2/30/2023",
-            To: "2/30/2026",
-            Position: " Cây hài",
-            JobDescription: "Gây tiếng cười cho cộng đồng",
-        },
-        {
-            WorkPlace: "Công ty TNHH Rạp xiếc trung ương",
-            From: "2/30/2023",
-            To: "2/30/2026",
-            Position: " Cây hài",
-            JobDescription: "Gây tiếng cười cho cộng đồng",
-        },
-        {
-            WorkPlace: "Công ty TNHH Rạp xiếc trung ương",
-            From: "2/30/2023",
-            To: "2/30/2026",
-            Position: " Cây hài",
-            JobDescription: "Gây tiếng cười cho cộng đồng",
-        },
-        ],
-
-    }
-    const userEducation = CV.Education.map((data) => {
-        return (
-            <>
-                <div style={{ 'display': 'flex', 'flexDirection': 'row' }}>
-                    <p className="subTitle">- Trình độ: {data.Edu}</p>
-
-                    <p className="fielddate"><Icon.CalendarFill></Icon.CalendarFill>{data.From} - {data.To}</p>
-                </div>
-
-                <p className="schoolname">{data.SchoolName} </p>
-                <p className="degree">Bằng cấp: {data.Degree}</p>
-            </>
-        )
-    })
-    const userSkill = CV.Skill.map((data) => {
-        return (
-            <>
-                <div style={{ 'display': 'flex', 'flexDirection': 'row' }}>
-                    <p className="skill">{data.SkillName} </p>
-                    <p className="fielddate">{data.Level}</p>
-                </div>
-            </>
-        )
-    })
-    const userHobbies = CV.Hobbies.map((data) => {
-        return (
-            <>
-                <p>{data}</p>
-            </>
-        )
-    })
-    const userEmployment = CV.Employments.map((data) => {
-        return (
-            <>
-                <div className="jobBox">
-                    <div style={{ 'display': 'flex', 'flexDirection': 'row', 'width': '100%' }}>
-                        <p className="subTitle"> {data.WorkPlace}</p>
-                        <p className="fielddate"><Icon.CalendarFill></Icon.CalendarFill>{data.From} - {data.To}</p>
-                    </div>
-
-                    <p>Chức vụ: {data.Position}</p>
-                    <p>Mô tả công việc :{data.JobDescription}</p>
-                </div>
-
-            </>
-        )
-    })
     return (
-        <div style={{ 'padding': '6rem 1rem 0 1rem' }} className="bodyCV2">
-            <div className="CVHeader">
-                <img src={CV.UserInfo.Avatar} alt="" className="avatar" />
-                <div style={{'width':'50%'}}>
-                    <h1 className="customerName">{CV.UserInfo.Name}</h1>
-                    <h1 className="customerJobtitle">{CV.UserInfo.JobTitle}</h1>
-                </div>
-
-
-                <div className="infomation">
-                    <p className="userinfomation">{CV.UserInfo.Phone}<Icon.PhoneFill className="infoIcon" ></Icon.PhoneFill></p>
-                    <p className="userinfomation">{CV.UserInfo.Dob}<Icon.CalendarFill className="infoIcon"></Icon.CalendarFill></p>
-                    <p className="userinfomation">{CV.UserInfo.Address},{CV.UserInfo.Country}<Icon.HouseFill className="infoIcon"></Icon.HouseFill></p>
-                    <p className="userinfomation">{CV.UserInfo.Email}<Icon.Mailbox2 className="infoIcon"></Icon.Mailbox2></p>
-                </div>
-            </div>
-            <div className="CVmain">
-                <div className="CVmainpart1">
-                    <h1 className="infoTitle">TRÌNH ĐỘ HỌC VẤN</h1>
-                    {userEducation}
-                    <h1 className="infoTitle">KỸ NĂNG</h1>
-                    {userSkill}
-                    <h1 className="infoTitle">SỞ THÍCH</h1>
-                    {userHobbies}
-                </div>
-
-                <div className="CVmainpart2">
-                    <h1 className="infoTitle">MỤC TIÊU</h1>
-                    <div className="BioBox">
-                        <p>{CV.Bio}</p>
-                    </div>
-                    <h1 className="infoTitle">KINH NGHIỆM LÀM VIỆC</h1>
-                    {userEmployment}
-                </div>
-
-            </div>
+        <>
+        <div id="inner">
+             <div className="container" style={{ paddingTop: '6rem' }}>
         </div>
+           
+                      <div className="row justify-content-center" style={{ marginLeft: '20rem' }}>
+                </div>
+              
+                    <div className="col-md-9">
+                        <div className="row align-items-center">
+                            <div className="col-lg-5">
+                                <div className="resume-base bg-primary user-dashboard-info-box p-4">
+                                    <div className="profile">
+                                        <div className="jobster-user-info">
+                                            <div className="profile-avatar">
+                                                <img className="img-fluid " src="https://bootdey.com/img/Content/avatar/avatar6.png" alt=""></img>
+                                            </div>
+                                            <div className="profile-avatar-info mt-3">
+                                                <h5 className="text-white">Vickie Meyer</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="about-candidate border-top">
+                                        <div className="candidate-info">
+                                            <h6 className="text-white">Name:</h6>
+                                            <p className="text-white">Anne Smith</p>
+                                        </div>
+                                        <div className="candidate-info">
+                                            <h6 className="text-white">Email:</h6>
+                                            <p className="text-white">test04@gmail.com</p>
+                                        </div>
+                                        <div className="candidate-info">
+                                            <h6 className="text-white">Phone:</h6>
+                                            <p className="text-white">(123) 345-6789</p>
+                                        </div>
+                                        <div className="candidate-info">
+                                            <h6 className="text-white">Date Of Birth:</h6>
+                                            <p className="text-white">1993-12-28</p>
+                                        </div>
+                                        <div className="candidate-info">
+                                            <h6 className="text-white">Address:</h6>
+                                            <p className="text-white">Maine Turnpike, Hallowell, ME, USA</p>
+                                        </div>
+                                        <div className="candidate-info">
+                                            <h6 className="text-white">Gender:</h6>
+                                            <p className="text-white">Female</p>
+                                        </div>
+                                    </div>
+                                    <div className="mt-0">
+                                        <h5 className="text-white">Professional Skill:</h5>
+                                        <div className="progress bg-dark">
+                                            <div className="progress-bar bg-white" role="progressbar" style={{ width: '55%' }} >
+                                                <div className="progress-bar-title text-white">Photoshop</div>
+                                                <span className="progress-bar-number text-white">70%</span>
+                                            </div>
+                                        </div>
+                                        <div className="progress bg-dark">
+                                            <div className="progress-bar bg-white" role="progressbar" style={{ width: '80%' }}>
+                                                <div className="progress-bar-title text-white">JavaScript</div>
+                                                <span className="progress-bar-number text-white">80%</span>
+                                            </div>
+                                        </div>
+                                        <div className="progress bg-dark">
+                                            <div className="progress-bar bg-white" role="progressbar" style={{ width: '55%' }} >
+                                                <div className="progress-bar-title text-white">HTML/CSS</div>
+                                                <span className="progress-bar-number text-white">55%</span>
+                                            </div>
+                                        </div>
+                                        <div className="progress bg-dark mb-md-0">
+                                            <div className="progress-bar bg-white" role="progressbar" style={{ width: '60%' }}>
+                                                <div className="progress-bar-title text-white">PHP</div>
+                                                <span className="progress-bar-number text-white">60%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-7">
+                                <div className="resume-experience">
+                                    <div className="timeline-box">
+                                        <h5 className="resume-experience-title">Education:</h5>
+                                        <div className="jobster-candidate-timeline">
+                                            <div className="jobster-timeline-item">
+                                                <div className="jobster-timeline-cricle">
+                                                    <i className="far fa-circle"></i>
+                                                </div>
+                                                <div className="jobster-timeline-info">
+                                                    <div className="dashboard-timeline-info">
+                                                        <span className="jobster-timeline-time">2014 - 2018</span>
+                                                        <h6 className="mb-2">Diploma in Graphics Design</h6>
+                                                        <span>- Graphic Arts Institute</span>
+                                                        <p className="mt-2">Have some fun and hypnotize yourself to be your very own “Ghost of Christmas future” and see what the future holds for you.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="jobster-timeline-item mb-0">
+                                                <div className="jobster-timeline-cricle">
+                                                    <i className="far fa-circle"></i>
+                                                </div>
+                                                <div className="jobster-timeline-info">
+                                                    <div className="dashboard-timeline-info">
+                                                        <span className="jobster-timeline-time">2018 - Pres</span>
+                                                        <h6 className="mb-2">Masters in Software Engineering</h6>
+                                                        <span>- Engineering University</span>
+                                                        <p className="mt-2">This is the beginning of creating the life that you want to live. Know what the future holds for you as a result of the choice you can make today.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="timeline-box mt-4">
+                                        <h5 className="resume-experience-title">Work &amp; Experience:</h5>
+                                        <div className="jobster-candidate-timeline">
+                                            <div className="jobster-timeline-item">
+                                                <div className="jobster-timeline-cricle">
+                                                    <i className="far fa-circle"></i>
+                                                </div>
+                                                <div className="jobster-timeline-info">
+                                                    <div className="dashboard-timeline-info">
+                                                        <span className="jobster-timeline-time">2020-6-01 to 2020-6-01</span>
+                                                        <h6 className="mb-2">Web Designer</h6>
+                                                        <span>- Inwave Studio</span>
+                                                        <p className="mt-2">One of the main areas that I work on with my clients is shedding these non-supportive beliefs and replacing them with beliefs that will help them to accomplish their desires.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="jobster-timeline-item mb-0">
+                                                <div className="jobster-timeline-cricle">
+                                                    <i className="far fa-circle"></i>
+                                                </div>
+                                                <div className="jobster-timeline-info">
+                                                    <div className="dashboard-timeline-info">
+                                                        <span className="jobster-timeline-time">2020-6-01 to 2020-6-01</span>
+                                                        <h6 className="mb-2">Secondary School Certificate</h6>
+                                                        <span>- Engineering High School</span>
+                                                        <p className="mt-2">Figure out what you want, put a plan together to achieve it, understand the cost, believe in yourself then go and get it!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="timeline-box mt-4">
+                                        <h5 className="resume-experience-title">Awards:</h5>
+                                        <div className="jobster-candidate-timeline">
+                                            <div className="jobster-timeline-item">
+                                                <div className="jobster-timeline-cricle">
+                                                    <i className="far fa-circle"></i>
+                                                </div>
+                                                <div className="jobster-timeline-info">
+                                                    <div className="dashboard-timeline-info">
+                                                        <span className="jobster-timeline-time">2020-6-01 to 2020-6-01</span>
+                                                        <h6 className="mb-2">Web Designer</h6>
+                                                        <span>- Inwave Studio</span>
+                                                        <p className="mt-2">One of the main areas that I work on with my clients is shedding these non-supportive beliefs and replacing them with beliefs that will help them to accomplish their desires.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="jobster-timeline-item mb-0">
+                                                <div className="jobster-timeline-cricle">
+                                                    <i className="far fa-circle"></i>
+                                                </div>
+                                                <div className="jobster-timeline-info">
+                                                    <div className="dashboard-timeline-info">
+                                                        <span className="jobster-timeline-time">2020-6-01 to 2020-6-01</span>
+                                                        <h6 className="mb-2">Secondary School Certificate</h6>
+                                                        <span>- Engineering High School</span>
+                                                        <p className="mt-2">Figure out what you want, put a plan together to achieve it, understand the cost, believe in yourself then go and get it!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </>
     )
 }
