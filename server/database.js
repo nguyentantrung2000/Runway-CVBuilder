@@ -34,7 +34,7 @@ class Database {
         },
         CVthumnail: null,
         CVImage: null,
-        dateCreated:`${month}//${date}//${year}`
+        dateCreated:`${month}/${date}/${year}`
 
       }).then(async data => {
         return temp = data.id;
