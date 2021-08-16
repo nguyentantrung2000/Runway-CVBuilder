@@ -21,7 +21,6 @@ function App() {
   return (
     <>
       <React.Fragment>
-        <NavBar></NavBar>
         <Router>
           <Switch>
             <Route path="/" exact component={LandingPage} />

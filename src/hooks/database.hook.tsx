@@ -24,8 +24,7 @@ export async function saveCVInfo() {
         })
 
 }
-export async function getOwnedCV() {
-        let UserID = " "
+export async function getOwnedCV(UserID:any) {
     await fetch(enviroment + "getOwnedCV", {
         method: 'GET',
         headers: {
