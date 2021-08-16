@@ -2,8 +2,8 @@ var admin = require("firebase-admin");
 
 var serviceAccount = require("../server/runway-cv-builder-firebase-adminsdk-e0svh-ab805ce173.json");
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://runway-cv-builder-default-rtdb.firebaseio.com"
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://runway-cv-builder-default-rtdb.firebaseio.com"
 });
 
 const firestore = admin.firestore();
@@ -43,48 +43,26 @@ class Database {
         OwnedCV: admin.firestore.FieldValue.arrayUnion(temp),
       })
       return 0
-    }
-    catch (err) {
-      console.log(err);
-    }
+    }catch (err) {
+  
   }
 
+}
 
-  async getAllOwnerCV(UserID) {
-    let CVList;
-    let CVDetailList = [];
-    CVList = await firestore.collection("Users").doc(UserID)
-      .get().then(data => {
-        return data.data().OwnedCV;
-      })
-    for (let i = 0; i < CVList.length; i++) {
-      await firestore.collection("CV").doc(CVList[i]).get().then(data => {
-        return CVDetailList.push(data.data())
-      })
+    async getAllOwnerCV(UserID) {
+        let CVList;
+        let CVDetailList = [];
+        CVList = await firestore.collection("Users").doc(UserID)
+            .get().then(data => {
+                return data.data().OwnedCV;
+            })
+        for (let i = 0; i < CVList.length; i++) {
+            await firestore.collection("CV").doc(CVList[i]).get().then(data => {
+                return CVDetailList.push(data.data())
+            })
+        }
+        return CVDetailList;
     }
-    return CVDetailList;
-  }
-  async getCVDetail(CVID) {
-    let temp;
-    await firestore.collection("CV").doc(CVID).get().then(data => {
-      return temp = data.data();
-    })
-    return
-  }
-
-
-
-  //Xóa
-  async deleteCV(id, CVID) {
-    try {
-      await firestore.collection("Users").doc(id).update({
-        OwnedCV: admin.firestore.FieldValue.arrayRemove(CVID),
-      })
-    } catch (err) {
-
-    }
-    return 0;
-  }
 
   //Sửa
 
@@ -113,13 +91,35 @@ class Database {
     } catch (err) {
 
     }
-    return 0;
   }
+  
+    async getCVDetail(CVID) {
+        let temp;
+        await firestore.collection("CV").doc(CVID).get().then(data => {
+            return temp = data.data();
+        })
+        return
+    }
+
+
+
+    //Xóa
+    async deleteCV(id, CVID) {
+        try {
+            await firestore.collection("Users").doc(id).update({
+                OwnedCV: admin.firestore.FieldValue.arrayRemove(CVID),
+            })
+        } catch (err) {
+
+        }
+        return 0;
+    }
+
+    //Sửa
+
+
+    ////Lưu thông tin CV
+
 }
 
 module.exports = Database;
-
-
-
-
-
