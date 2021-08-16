@@ -32,7 +32,7 @@ class Database {
           Educations: null,
           Employments: null,
         },
-        CVthumnail: null,
+        CVThumbnail: null,
         CVImage: null,
         dateCreated:`${month}/${date}/${year}`
 
@@ -90,7 +90,7 @@ class Database {
 
 
   ////Lưu thông tin CV
-  async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVthumnail, CVImage) {
+  async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage) {
     try {
       await firestore.collection("CV").doc(CVID).set({
         CVDetails: {
@@ -107,7 +107,7 @@ class Database {
           Educations: Educations || null,
           Employments: Employments || null,
         },
-        CVthumnail: CVthumnail || null,
+        CVThumbnail: CVThumbnail || null,
         CVImage: CVImage || null,
       })
     } catch (err) {
