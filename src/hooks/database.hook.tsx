@@ -59,6 +59,19 @@ export async function createCV(UserID: any) {
     })
     return result;
 }
+export async function deleteCV(UserID:any,CVID:any){
+    await fetch(enviroment+"deleteCV",{
+        method:'DELETE',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({UserID:UserID,CVID:CVID})
+    }).then(data=>{
+        data.text()
+    }).then(res=>{
+        return res;
+    })
+}
 
 ////// EXAMPLE API
 async function getAPI() {
@@ -97,3 +110,4 @@ export async function getCVDetail(CVID:any) {
     })
     return result
 }
+////////////////////
