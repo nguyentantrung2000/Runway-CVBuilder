@@ -13,7 +13,10 @@ export const UserCV = () => {
         let temp = await getOwnedCV(UserID)
         setUserCVDatabase(temp)
     }
-    let [currentCV,setCurrentCV]=useState<any>('')
+    let [currentCV,setCurrentCV]=useState<any>({CV:{
+        CVImage:'',
+        dateCreated:'',
+    }})
      function viewCV(CV:any){
         setShow(true)
          setCurrentCV(CV)
