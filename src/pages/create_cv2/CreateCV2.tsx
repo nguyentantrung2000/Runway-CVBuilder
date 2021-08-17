@@ -1,7 +1,10 @@
 import './CreateCV2.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useAuthState} from '../../hooks/auth.hook'
+import {getCVDetail} from '../../hooks/database.hook'
 export const CreateCV2=()=> {
+    const authState=useAuthState()
     return (
         <div style={{ 'paddingTop': '8rem', 'marginLeft': '6rem' }}>
             <Container>
@@ -54,7 +57,7 @@ export const CreateCV2=()=> {
                             </div>
                             <Row style={{ 'marginTop': '5rem' }}>
                                 <Col >  <Button style={{ 'width': '9rem' }} variant="outline-primary">Export PDF</Button>{' '}</Col>
-                                <Col> <Button style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '}</Col>
+                                <Col> <Button onClick={()=>getCVDetail(authState)} style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '}</Col>
                             </Row>
                         </div>
                     </Col>

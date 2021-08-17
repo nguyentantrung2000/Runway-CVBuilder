@@ -1,7 +1,6 @@
 import { useState } from "react";
 import firebase from 'firebase';
-import { useHistory } from "react-router-dom";
-import { resourceLimits } from "worker_threads";
+
 const enviroment = "http://localhost:3001/";
 
 export async function saveCVInfo() {
@@ -82,4 +81,19 @@ async function postWithBodyAPI() {
     }).then(data => {
         console.log(data);
     })
+}
+export async function getCVDetail(CVID:any) {
+    let result:any=[];
+    await fetch(enviroment + "getdetailcv", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ CVID: CVID })
+    }).then(data=>{
+        return data.json();
+    }).then(res=>{
+        return result=res;
+    })
+    return result
 }
