@@ -1,34 +1,40 @@
 import './UserCV.css';
-import { Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Button, Modal,Image } from 'react-bootstrap';
+import { Link,NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuthState } from '../../hooks/auth.hook';
 import { getOwnedCV } from '../../hooks/database.hook';
 import { useEffect, useState } from 'react';
 export const UserCV = () => {
-
+    const [show, setShow] = useState(false);
     const authState = useAuthState();
     let [UserCVDatabase, setUserCVDatabase] = useState([]);
     async function getUserCV(UserID: any) {
-        let temp=await getOwnedCV(UserID)
-         setUserCVDatabase(temp)
+        let temp = await getOwnedCV(UserID)
+        setUserCVDatabase(temp)
     }
-  
-  
+    let [currentCV,setCurrentCV]=useState<any>('')
+     function viewCV(CV:any){
+        setShow(true)
+         setCurrentCV(CV)
+    }
+    function editCV(CV:any){
+
+    }
     useEffect(() => {
-          getUserCV(authState?.uid)
+        getUserCV(authState?.uid)
     }, [authState]);
-    let CVlist = UserCVDatabase.map((data:any, index:any) => {
+    let CVlist = UserCVDatabase.map((data: any, index: any) => {
+        console.log(data)
         return (
             <div key={index}>
-                <h1 className="CVtitle">{data.dateCreated}</h1>
+                <h1 className="CVtitle">{data.CV.dateCreated}</h1>
                 <div className="CVBox" >
-
-                    <img src={data.CVThumbnail} alt="" className="CV" />
+                    <img src={data.CV.CVThumbnail} alt="" className="CV" />
                     <div className="button-Hover">
                         <div className="buttonDiv">
-                            <Button variant="outline-primary">View</Button>{' '}
-                            <NavLink to={{pathname:"/createcv"}}><Button variant="outline-success">Edit</Button>{' '}</NavLink>
+                            <Button variant="outline-primary" onClick={()=>viewCV(data)}>View</Button>{' '}
+                            <Link to={{ pathname: `/createCV/${data.id}` }}><Button variant="outline-success">Edit</Button>{' '}</Link>
                             <Button variant="outline-danger">Delete</Button>{' '}
                         </div>
 
@@ -43,7 +49,7 @@ export const UserCV = () => {
         <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
             <h1 className="category">
                 Your CV List
-           
+
             </h1>
             <div className="CVList">
                 {CVlist}
@@ -53,6 +59,29 @@ export const UserCV = () => {
                     </div></NavLink>
                 </div>
             </div>
+            <Modal
+                size="lg"
+                show={show}
+                onHide={() => setShow(false)}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        {currentCV.CV.dateCreated}
+                    </Modal.Title>
+                       
+                </Modal.Header>
+                <Modal.Body>
+                <Image
+                    style={{ width:'100%',height:'50rem'}}
+                    src={currentCV.CV.CVImage}
+                    rounded
+                  />
+                </Modal.Body>
+            </Modal>
+
         </div>
     );
+
 };

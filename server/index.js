@@ -40,7 +40,7 @@ app.post("/addCV", async(req, res) => {
     const { UserID } = req.body;
     try {
         let result = await db.addCV(UserID);
-        res.send("Thêm CV thành công");
+        res.send(result);
     } catch (err) {
 
     }
