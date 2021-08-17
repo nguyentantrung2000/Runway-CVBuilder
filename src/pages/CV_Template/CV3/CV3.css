@@ -1,232 +1,283 @@
-/* My Resume */
+.main-content {
+    min-height: 100%;
+    width: 50%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.left-section {
+    grid-column: span 2;
+    height: 100%;
+    background-color: #00324A;
+}
+
+.right-section {
+    grid-column: span 5;
+    background-color: #f7f7f7;
+    height: 100%;
+}
+
+.left-content {
+    padding: 2rem 3rem;
+}
 
 .profile {
-    margin-bottom: 25px;
-}
-
-.profile .jobster-user-info {
-    display: inline-block;
     width: 100%;
+    border-bottom: 1px solid #002333;
 }
 
-.profile .jobster-user-info .profile-avatar {
-    position: relative;
-    height: 115px;
-    width: 115px;
-    border-radius: 100%;
-    display: inline-block;
-}
-
-.profile .jobster-user-info .profile-avatar img {
-    border-radius: 100%;
-}
-
-.profile .jobster-user-info .profile-avatar i {
-    font-size: 16px;
-    color: #21c87a;
-    position: absolute;
-    background: #ffffff;
-    border-radius: 100%;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
+.image {
+    width: 100%;
     text-align: center;
-    bottom: 20px;
-    right: -5px;
 }
 
-.about-candidate {
-    padding: 25px 0px;
-}
-
-.about-candidate .candidate-info {
-    margin-bottom: 20px;
-}
-
-.resume-experience {
-    padding-left: 10px;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    position: relative;
-    padding-right: 50px;
-    background: #f6f6f6;
-}
-
-.resume-experience:before {
-    position: absolute;
-    left: -40%;
-    right: 0;
+.profile img {
     width: 100%;
-    height: 100%;
-    background: #f6f6f6;
-    content: "";
-    z-index: -1;
-    top: 0;
+    border-radius: 50%;
+    border: 8px solid #002333;
 }
 
-.resume-experience .jobster-candidate-timeline .jobster-timeline-item .jobster-timeline-cricle {
-    border-color: #f6f6f6;
+.name {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.2rem 0;
 }
 
-.user-dashboard-info-box .select2-container--default .select2-selection--single .select2-selection__rendered {
-    font-weight: bold;
-    color: #626262;
+.career {
+    font-size: 1.2rem;
+    color: #94D9EA;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
 }
 
-@media (max-width: 1199px) {
-    .secondary-menu ul li a {
-        padding: 10px 15px;
-    }
+.main-title {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f7f7f7ec;
+    padding-top: 3rem;
 }
 
-@media (max-width: 991px) {
-    .resume-experience {
-        padding-left: 15px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        padding-right: 15px;
-    }
-    .resume-experience:before {
-        content: none;
-    }
-    .secondary-menu ul li {
-        display: inline-block;
-    }
+.contact-info ul {
+    padding-top: 2rem;
 }
 
-@media (max-width: 575px) {
-    .secondary-menu ul li a {
-        padding: 4px 8px;
-    }
+.contact-info ul li {
+    padding: .4rem 0;
+    display: flex;
+    align-items: center;
+    color: #718096;
 }
 
+.contact-info ul li i {
+    padding-right: 1rem;
+    font-size: 1.2rem;
+    color: #2D9CDB;
+}
 
-/*****************************
-    Progress Bar
-*****************************/
+.skills-section ul {
+    padding-top: 2rem;
+}
+
+.skills-section ul li {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: .4rem 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: .4rem;
+    background-color: #2f81ed5b;
+    position: relative;
+    border-radius: 12px;
+}
 
 .progress {
-    position: relative;
-    overflow: inherit;
-    height: 3px;
-    margin: 40px 0px 15px;
-    width: 100%;
-    display: inline-block;
-}
-
-.progress .progress-bar {
-    height: 3px;
-    background: #21c87a;
-}
-
-.progress .progress-bar-title {
+    height: 100%;
     position: absolute;
     left: 0;
-    top: -20px;
-    color: #212529;
-    font-size: 14px;
-    font-weight: 600;
+    background-color: #2D9CDB;
+    border-radius: 12px;
 }
 
-.progress .progress-bar-number {
+.js-progress {
+    width: 70%;
+}
+
+.ps-progress {
+    width: 90%;
+}
+
+.j-progress {
+    width: 85%;
+}
+
+.c-progress {
+    width: 40%;
+}
+
+.n-progress {
+    width: 63%;
+}
+
+.w-progress {
+    width: 78%;
+}
+
+.skill-title {
+    text-transform: uppercase;
+    color: #f7f7f7;
+    font-size: 1rem;
+}
+
+.sub-title {
+    padding-top: 2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #f7f7f7;
+}
+
+.sub-para {
+    color: #ccc;
+    padding: .4rem 0;
+}
+
+.references-section li {
+    color: #ccc;
+    padding: .2rem 0;
+}
+
+.references-section li i {
+    padding-right: .5rem;
+    font-size: 1.2rem;
+    color: #2D9CDB;
+}
+
+.right-main-content {
+    padding: 2rem 3rem;
+}
+
+.right-title {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #2F80ED;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.right-title::after {
+    content: "";
     position: absolute;
+    width: 60%;
+    height: .2rem;
+    background-color: #ccc;
+    border-radius: 12px;
     right: 0;
-    color: #646f79;
-    top: -20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
+.para {
+    line-height: 1.6rem;
+    color: #718096;
+    font-size: 1.1rem;
+}
 
-/* Jobster Candidate */
+.sect {
+    padding-bottom: 2rem;
+}
 
-.jobster-candidate-timeline {
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.tl-title {
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    color: #002333;
+    text-transform: uppercase;
+}
+
+.tl-title-2 {
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    color: #2D9CDB;
+    text-transform: uppercase;
+}
+
+.tl-content {
+    border-left: 1px solid #ccc;
+    padding-left: 2rem;
     position: relative;
+    padding-bottom: 2rem;
 }
 
-.jobster-candidate-timeline:before {
+.tl-title-2::before {
     content: "";
     position: absolute;
-    left: 20px;
-    width: 2px;
-    top: 5px;
-    bottom: 5px;
-    height: calc(100% - 5px);
-    background-color: #eeeeee;
-}
-
-.jobster-candidate-timeline .jobster-timeline-item {
-    display: table;
-    position: relative;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.jobster-candidate-timeline .jobster-timeline-item .jobster-timeline-cricle {
+    width: .7rem;
+    height: .7rem;
+    background-color: #2D9CDB;
     border-radius: 50%;
-    border: 12px solid white;
-    z-index: 1;
-    top: 5px;
-    left: 9px;
-    position: absolute;
+    transform: translateX(-50%);
+    left: 0;
 }
 
-.jobster-candidate-timeline .jobster-timeline-item .jobster-timeline-cricle:before {
-    content: "";
-    position: absolute;
-    left: 12px;
-    width: 20px;
-    top: -1px;
-    bottom: 5px;
-    height: 2px;
-    background-color: #eeeeee;
+
+/*Media Querries*/
+
+@media screen and (max-width:823px) {
+    .right-title::after {
+        width: 40%;
+    }
 }
 
-.jobster-candidate-timeline .jobster-timeline-item .jobster-timeline-cricle>i {
-    font-size: 15px;
-    top: -8px;
-    left: -7px;
-    position: absolute;
-    color: #21c87a;
+@media screen and (max-width:681px) {
+    .right-title::after {
+        width: 30%;
+    }
 }
 
-.jobster-candidate-timeline .jobster-timeline-item .jobster-timeline-info {
-    display: table-cell;
-    vertical-align: top;
-    padding: 5px 0 0 70px;
+@media screen and (max-width:780px) {
+    .timeline {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
-.jobster-candidate-timeline .jobster-timeline-item .jobster-timeline-info h6 {
-    color: #21c87a;
-    margin: 5px 0 0px;
+@media screen and (max-width:780px) {
+    .left-section {
+        grid-column: span 3;
+    }
+    .right-section {
+        grid-column: span 4;
+    }
 }
 
-.jobster-candidate-timeline .jobster-timeline-item .jobster-timeline-info span {
-    color: #212529;
-    font-size: 13px;
-    font-weight: 500;
+@media screen and (max-width:1200px) {
+    .main-content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .profile img {
+        width: 40%;
+    }
 }
 
-.jobster-candidate-timeline span.jobster-timeline-time {
-    color: #646f79 !important;
+@media screen and (max-width:700px) {
+    .profile img {
+        width: 60%;
+    }
 }
 
-.jobster-candidate-timeline .jobster-timeline-icon {
-    border: 2px solid #eeeeee;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    line-height: 42px;
-    text-align: center;
-    background: #ffffff;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.jobster-candidate-timeline .jobster-timeline-icon i {
-    font-size: 16px;
-    color: #212529;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow {
-    top: 16px;
+@media screen and (max-width:390px) {
+    .name {
+        font-size: 1.5rem;
+    }
 }
