@@ -12,7 +12,7 @@ app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
 });
 
-app.post("/testPostWithBody", async(req, res) => {
+app.post("/testPostWithBody", async (req, res) => {
     const { json } = req.body
     try {
         console.log(json);
@@ -22,11 +22,11 @@ app.post("/testPostWithBody", async(req, res) => {
     }
 
 })
-app.get("/getAPI", async(req, res) => {
-        res.send("Hello from server");
-    })
-    ///////// CV LIST API //////////////////////////////////
-app.post("/deleteCV", async(req, res) => {
+app.get("/getAPI", async (req, res) => {
+    res.send("Hello from server");
+})
+///////// CV LIST API //////////////////////////////////
+app.post("/deleteCV", async (req, res) => {
     const { id, CVID } = req.body;
     try {
         let result = await db.deleteCV(id, CVID);
@@ -36,40 +36,40 @@ app.post("/deleteCV", async(req, res) => {
     }
 })
 
-app.post("/addCV", async(req, res) => {
+app.post("/addCV", async (req, res) => {
     const { UserID } = req.body;
     try {
         let result = await db.addCV(UserID);
-        res.send("Thêm CV thành công");
+        res.send(result);
     } catch (err) {
 
     }
 })
 
-app.post("/deleteCV", async(req, res) => {
-        const { id, CVID } = req.body;
-        try {
-            let result = await db.deleteCV(id, CVID);
-            res.send("Xóa thành công");
-        } catch (err) {
+app.post("/deleteCV", async (req, res) => {
+    const { id, CVID } = req.body;
+    try {
+        let result = await db.deleteCV(id, CVID);
+        res.send("Xóa thành công");
+    } catch (err) {
 
-        }
-    })
-    ///////// END CV LIST API //////////////////////////////////
+    }
+})
+///////// END CV LIST API //////////////////////////////////
 
 
 ///////// CV  API //////////////////////////////////
 
-app.post("/saveCV", async(req, res) => {
-        const { CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage } = req.body
-        try {
-            let result = await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage);
-            res.send("Lưu thông tin thành công");
-        } catch (err) {
-            console.log(err)
-        }
-    })
-    ///////// END CV  API //////////////////////////////////
+app.post("/saveCV", async (req, res) => {
+    const { CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage } = req.body
+    try {
+        let result = await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage);
+        res.send("Lưu thông tin thành công");
+    } catch (err) {
+        console.log(err)
+    }
+})
+///////// END CV  API //////////////////////////////////
 
 ////////// User CV ////////////////////
 // app.post("/userAddCV",async(req,res)=>{
@@ -82,7 +82,7 @@ app.post("/saveCV", async(req, res) => {
 //   }
 // })
 
-app.post("/userAddCV", async(req, res) => {
+app.post("/userAddCV", async (req, res) => {
     const { UserID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments } = req.body
     try {
         let result = await db.addNewCV(UserID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments);
@@ -91,7 +91,7 @@ app.post("/userAddCV", async(req, res) => {
         console.log(err)
     }
 })
-app.post("/getOwnedCV", async(req, res) => {
+app.post("/getOwnedCV", async (req, res) => {
     const { UserID } = req.body
     try {
         let result = await db.getAllOwnerCV(UserID);
@@ -100,12 +100,21 @@ app.post("/getOwnedCV", async(req, res) => {
 
     }
 })
-app.post("/getdetailcv", async(req, res) => {
+app.post("/getdetailcv", async (req, res) => {
     const { CVID } = req.body
     try {
         let result = await db.getCVDetail(CVID);
         res.send(result);
     } catch (err) {
         console.log("Khong tim thay cv")
+    }
+})
+app.delete("/deleteCV", async (req, res) => {
+    const { UserID, CVID } = req.body;
+    try {
+        let result = await db.deleteCV(UserID, CVID);
+        res.send("Delete thành công");
+    } catch (err) {
+
     }
 })

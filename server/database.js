@@ -42,7 +42,7 @@ class Database {
             await firestore.collection("Users").doc(UserID).update({
                 OwnedCV: admin.firestore.FieldValue.arrayUnion(temp),
             })
-            return 0
+            return temp;
         } catch (err) {
 
         }
@@ -58,7 +58,7 @@ class Database {
             })
         for (let i = 0; i < CVList.length; i++) {
             await firestore.collection("CV").doc(CVList[i]).get().then(data => {
-                return CVDetailList.push(data.data())
+                return CVDetailList.push({CV:data.data(),id:data.id})
             })
         }
         return CVDetailList;
@@ -104,11 +104,12 @@ class Database {
 
 
     //Xóa
-    async deleteCV(id, CVID) {
+    async deleteCV(UserID, CVID) {
         try {
-            await firestore.collection("Users").doc(id).update({
+            await firestore.collection("Users").doc(UserID).update({
                 OwnedCV: admin.firestore.FieldValue.arrayRemove(CVID),
             })
+            await firestore.collection("CV").doc(CVID).delete();
         } catch (err) {
 
         }

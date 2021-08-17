@@ -23,8 +23,9 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
+
             <Route path="/" exact component={LandingPage} />
-            <Route path="/createcv" component={CreateCV} />
+            <Route path="/createcv/:id" component={CreateCV} />
             <Route path="/createcv2" component={CreateCV2} />
             <Route path="/usercv" component={UserCV} />
             <Route path="/viewexcv" component={ViewExampleCV} />
