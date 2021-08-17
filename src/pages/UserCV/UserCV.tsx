@@ -3,11 +3,13 @@ import { Button, Modal,Image } from 'react-bootstrap';
 import { Link,NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuthState } from '../../hooks/auth.hook';
-import { getOwnedCV } from '../../hooks/database.hook';
+import { getOwnedCV,deleteCV } from '../../hooks/database.hook';
 import { useEffect, useState } from 'react';
+import domtoimage from 'dom-to-image';
 export const UserCV = () => {
     const [show, setShow] = useState(false);
     const authState = useAuthState();
+
     let [UserCVDatabase, setUserCVDatabase] = useState([]);
     async function getUserCV(UserID: any) {
         let temp = await getOwnedCV(UserID)
@@ -21,14 +23,13 @@ export const UserCV = () => {
         setShow(true)
          setCurrentCV(CV)
     }
-    function editCV(CV:any){
+    async function exportPDF(CVImage:any){
 
     }
     useEffect(() => {
         getUserCV(authState?.uid)
     }, [authState]);
     let CVlist = UserCVDatabase.map((data: any, index: any) => {
-        console.log(data)
         return (
             <div key={index}>
                 <h1 className="CVtitle">{data.CV.dateCreated}</h1>
@@ -38,7 +39,7 @@ export const UserCV = () => {
                         <div className="buttonDiv">
                             <Button variant="outline-primary" onClick={()=>viewCV(data)}>View</Button>{' '}
                             <Link to={{ pathname: `/createCV/${data.id}` }}><Button variant="outline-success">Edit</Button>{' '}</Link>
-                            <Button variant="outline-danger">Delete</Button>{' '}
+                            <Button variant="outline-danger" onClick={()=>deleteCV(authState?.uid,data.id)}>Delete</Button>{' '}
                         </div>
 
                     </div>
@@ -80,7 +81,9 @@ export const UserCV = () => {
                     style={{ width:'100%',height:'50rem'}}
                     src={currentCV.CV.CVImage}
                     rounded
+                    id="CVImage"
                   />
+                   <Button onClick={()=>exportPDF(currentCV.CV.CVImage)} >Export PDF</Button>
                 </Modal.Body>
             </Modal>
 

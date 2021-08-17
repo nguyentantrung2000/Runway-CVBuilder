@@ -104,11 +104,12 @@ class Database {
 
 
     //Xóa
-    async deleteCV(id, CVID) {
+    async deleteCV(UserID, CVID) {
         try {
-            await firestore.collection("Users").doc(id).update({
+            await firestore.collection("Users").doc(UserID).update({
                 OwnedCV: admin.firestore.FieldValue.arrayRemove(CVID),
             })
+            await firestore.collection("CV").doc(CVID).delete();
         } catch (err) {
 
         }
