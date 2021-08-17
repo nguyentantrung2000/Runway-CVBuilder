@@ -3,10 +3,12 @@ import './ViewExampleCV.css'
 import { Button } from 'rmwc';
 import { useState } from "react";
 import { NavLink } from "react-router-dom"
-import {useAuthState} from '../../hooks/auth.hook'
-import {createCV} from '../../hooks/database.hook'
+import { useAuthState } from '../../hooks/auth.hook'
+import { createCV } from '../../hooks/database.hook'
+import { useHistory } from "react-router-dom";
 
 export const ViewExampleCV = () => {
+    const history = useHistory();
     const CVdatabase = [
         {
             CVSrc: "https://i-vn.joboko.com/images/thumb-cv/1080.jpg",
@@ -53,46 +55,31 @@ export const ViewExampleCV = () => {
     const [currentNumJob, setNumJob] = useState(4)
     const [JobCV, setJobCV] = useState(JobCVDatabase.slice(0, currentNumJob));
     const [CV, setCV] = useState(CVdatabase.slice(0, currentNum));
-    const authState=useAuthState()
-   
+    const authState = useAuthState()
+
+
+    async function createNewCV(UserID: any) {
+        let id = await createCV(UserID);
+        history.push(`/createCV/${id}`);
+    }
+
     let CVList = CV.map((data, index) => {
         if (index >= 4) {
         }
         else {
-            return (<NavLink key={index} to={{ pathname: "/createcv", state: { id: index } }}><img src={data.CVSrc} alt="" className="CV" onClick={()=>createCV(authState?.uid)} />
-            </NavLink>)
+            return <img src={data.CVSrc} alt="" className="CV" onClick={() => createNewCV(authState?.uid)} />
+
         }
     })
     let JobCVList = JobCV.map((data, index) => {
         if (index >= 4) {
         }
         else {
-            return (<NavLink key={index} to={{ pathname: "/createcv", state: { id: index } }}><img src={data.CVSrc} alt="" className="CV" />
-            </NavLink>)
+            return<img src={data.CVSrc} alt="" className="CV"onClick={() => createNewCV(authState?.uid)} />
+            
         }
     })
 
-    async function getAPI(){
-        //// Gọi API GET từ server
-        await (await fetch("http://localhost:3001/getAPI")).text().then(data=>{
-            console.log(data);
-        })
-    }
-    async function postWithBodyAPI() {
-        ////gọi API POST từ server có truyền body 
-        await fetch("http://localhost:3001/testPostWithBody", {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({ json: "alo" }),
-        //// API này respon về một text nên phải biến nó thành dạng text
-        }).then(res=>{
-            return res.text()
-        }).then(data=>{
-            console.log(data);
-        })
-    }
 
     function ViewCV(String: any) {
         switch (String) {
@@ -151,7 +138,7 @@ export const ViewExampleCV = () => {
                 High Rated CV
             </h1>
             <div className="viewCVfunction">
-                <Button onClick={()=>createCV(authState)}>Left</Button>
+                <Button onClick={() => createCV(authState)}>Left</Button>
                 <div className="CVList">
                     {CVList}
 

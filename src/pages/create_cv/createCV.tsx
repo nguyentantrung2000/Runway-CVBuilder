@@ -65,7 +65,7 @@ export const CreateCV = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = (data:any) => console.log(data);
 
   // lấy dữ liệu được truyền từ component khác
   // let location = useLocation();
