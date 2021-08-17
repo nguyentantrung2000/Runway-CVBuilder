@@ -3,29 +3,18 @@ import firebase from 'firebase';
 
 const enviroment = "http://localhost:3001/";
 
-export async function saveCVInfo() {
-
-    let CVID = "dNTVeMjZmmh5lZU70vNG"
-    let Fname = "a"
-    let Lname = "a"
-    let Email = "a"
-    let dob = "a"
-    let phone = "a"
-    let Address = "a"
-    let Country = "a"
-    let Bio = "a"
-    let CVThumbnail = "a"
-    let CVImage = "a"
-    let Skills: any = []
-    let Hobbies: any = []
-    let Educations: any = []
-    let Employments: any = []
+export async function saveCVInfo(  CVID: any,  Fname: any,  Lname: any, Email: any,  dob: any, phone: any,  Address: any,  Country: any,  Bio: any,  Skills: any, Hobbies: any, Educations: any, Employments: any, CVThumbnail: any, CVImage: any ) {
+    console.log( CVID,  Fname)
     await fetch(enviroment + "saveCV", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ CVID: CVID, Fname: Fname, Lname: Lname, Email: Email, dob: dob, phone: phone, Address: Address, Country: Country, Bio: Bio, Skills: Skills, Hobbies: Hobbies, Educations: Educations, Employments: Employments, CVThumbnail: CVThumbnail, CVImage: CVImage })
+    }).then(data => {
+        data.text()
+    }).then(res=>{
+        return res;
     })
 
 }
@@ -60,6 +49,27 @@ export async function createCV(UserID: any) {
     return result;
 }
 
+
+export async function getCVDetail(CVID:any) {
+    let result:any=[];
+    await fetch(enviroment + "getdetailcv", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ CVID: CVID })
+    }).then(data=>{
+        return data.json();
+    }).then(res=>{
+        return result=res;
+    })
+    return result
+}
+
+
+
+
+
 ////// EXAMPLE API
 async function getAPI() {
     //// Gọi API GET từ server
@@ -81,19 +91,4 @@ async function postWithBodyAPI() {
     }).then(data => {
         console.log(data);
     })
-}
-export async function getCVDetail(CVID:any) {
-    let result:any=[];
-    await fetch(enviroment + "getdetailcv", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ CVID: CVID })
-    }).then(data=>{
-        return data.json();
-    }).then(res=>{
-        return result=res;
-    })
-    return result
 }
