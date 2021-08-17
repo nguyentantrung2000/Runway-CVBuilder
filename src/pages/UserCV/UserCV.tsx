@@ -5,9 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuthState } from '../../hooks/auth.hook';
 import { getOwnedCV,deleteCV } from '../../hooks/database.hook';
 import { useEffect, useState } from 'react';
+import domtoimage from 'dom-to-image';
 export const UserCV = () => {
     const [show, setShow] = useState(false);
     const authState = useAuthState();
+
     let [UserCVDatabase, setUserCVDatabase] = useState([]);
     async function getUserCV(UserID: any) {
         let temp = await getOwnedCV(UserID)
@@ -21,7 +23,7 @@ export const UserCV = () => {
         setShow(true)
          setCurrentCV(CV)
     }
-    function editCV(CV:any){
+    async function exportPDF(CVImage:any){
 
     }
     useEffect(() => {
@@ -79,7 +81,9 @@ export const UserCV = () => {
                     style={{ width:'100%',height:'50rem'}}
                     src={currentCV.CV.CVImage}
                     rounded
+                    id="CVImage"
                   />
+                   <Button onClick={()=>exportPDF(currentCV.CV.CVImage)} >Export PDF</Button>
                 </Modal.Body>
             </Modal>
 
