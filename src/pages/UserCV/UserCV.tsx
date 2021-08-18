@@ -1,11 +1,12 @@
 import './UserCV.css';
-import { Button, Modal,Image } from 'react-bootstrap';
+import { Button, Modal,Image, Navbar } from 'react-bootstrap';
 import { Link,NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuthState } from '../../hooks/auth.hook';
 import { getOwnedCV,deleteCV } from '../../hooks/database.hook';
 import { useEffect, useState } from 'react';
 import domtoimage from 'dom-to-image';
+import { NavBar } from '../../components/nav_bar/Navbar';
 export const UserCV = () => {
     const [show, setShow] = useState(false);
     const authState = useAuthState();
@@ -50,6 +51,8 @@ export const UserCV = () => {
     });
 
     return (
+        <>
+        <Navbar></Navbar>
         <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
             <h1 className="category">
                 Your CV List
@@ -88,6 +91,7 @@ export const UserCV = () => {
             </Modal>
 
         </div>
+        </>
     );
 
 };

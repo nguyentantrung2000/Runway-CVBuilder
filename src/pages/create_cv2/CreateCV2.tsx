@@ -1,9 +1,12 @@
 import './CreateCV2.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {NavBar} from "../../components/nav_bar/Navbar"
 export const CreateCV2=()=> {
     
     return (
+        <>
+        <NavBar></NavBar>
         <div style={{ 'paddingTop': '8rem', 'marginLeft': '6rem' }}>
             <Container>
                 <Row>
@@ -62,6 +65,6 @@ export const CreateCV2=()=> {
                 </Row>
             </Container>
         </div>
-
+        </>
     )
 }

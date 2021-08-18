@@ -1,6 +1,7 @@
 import { useAuthState } from '../../hooks/auth.hook'
 import { saveCVInfo } from '../../hooks/database.hook'
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
+import {NavBar} from "../../components/nav_bar/Navbar"
 import "./createCV.css";
 import {
   Row,
@@ -100,7 +101,8 @@ const [show,setShow]=useState(true);
   // console.log(location.state);
   //////////
   return (
-
+    <>
+    <NavBar></NavBar>
     <div className="from" style={{ paddingTop: "6rem" }}>
       <Container>
         <Form onSubmit={handleSubmit(onSubmit1)}>
@@ -795,5 +797,6 @@ const [show,setShow]=useState(true);
       {show===true &&<div id="CVImageLayout"><CV1></CV1></div>}
 
     </div>
+    </>
   );
 };
