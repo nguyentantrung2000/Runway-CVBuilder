@@ -22,7 +22,7 @@ import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import {  useParams } from "react-router-dom";
+
 
 
 // validate dữ liệu input
