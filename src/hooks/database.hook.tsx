@@ -4,6 +4,7 @@ import firebase from 'firebase';
 const enviroment = "http://localhost:3001/";
 
 export async function saveCVInfo(  CVID: any,  Fname: any,  Lname: any,AvatarUser:any, Email: any,  dob: any, phone: any,  Address: any,  Country: any,  Bio: any,  Skills: any, Hobbies: any, Educations: any, Employments: any, CVThumbnail: any, CVImage: any ) {
+    let result ;
     console.log( CVID,  Fname)
     await fetch(enviroment + "saveCV", {
         method: 'POST',
@@ -14,9 +15,9 @@ export async function saveCVInfo(  CVID: any,  Fname: any,  Lname: any,AvatarUse
     }).then(data => {
         data.text()
     }).then(res=>{
-        return res;
+        return result = res;
     })
-
+    return result ;
 }
 export async function getOwnedCV(UserID: any) {
     let result: any = [];

@@ -1,8 +1,9 @@
 import { useAuthState } from '../../hooks/auth.hook'
 import { saveCVInfo } from '../../hooks/database.hook'
+import { getCVDetail } from '../../hooks/database.hook'
 import {  useParams } from "react-router-dom";
 import {NavBar} from "../../components/nav_bar/Navbar"
-import "./createCV.css";
+import { useHistory } from "react-router-dom";
 import {
   Row,
   Col,
@@ -63,7 +64,14 @@ interface IFormInput {
 }
 
 export const CreateCV = () => {
+  const history = useHistory();
   let id: any = useParams()
+
+  async function routerID(id:any,firstName:any,lastName:any,AvatarUser:any,email:any,DOB:any,phone:any,address:any,country:any,bio:any,skillName:any, hobbyName: any ,education:any,company: any,CVThumbnail:any,CVImage:any){
+    
+   await  saveCVInfo(id,firstName,lastName,AvatarUser,email,DOB,phone,address,country,bio,skillName, hobbyName ,education,company,CVThumbnail,CVImage)
+    history.push(`/createcv2/${id}`)  
+  }
 
 const [show,setShow]=useState(true);
   const [show1, setShow1] = useState(false);
@@ -82,7 +90,8 @@ const [show,setShow]=useState(true);
     formState: { errors },
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data: any) => console.log(data);
-  const onSubmit1: SubmitHandler<IFormInput> = (data: any) => saveCVInfo(id.id, data.firstName, data.lastName, data.AvatarUser, data.email, data.DOB, data.phone, data.address, data.country, data.bio, data.skillName, { hobbyName: data.hobbyName }, data.education, { company: data.company, fromEmploy: data.fromEmploy, toEmploy: data.toEmploy }, data.CVThumbnail, data.CVImage);
+  const onSubmit1: SubmitHandler<IFormInput> = (data: any) => routerID(id.id, data.firstName, data.lastName, data.AvatarUser, data.email, data.DOB, data.phone, data.address, data.country, data.bio, data.skillName, { hobbyName: data.hobbyName }, data.education, { company: data.company, fromEmploy: data.fromEmploy, toEmploy: data.toEmploy }, data.CVThumbnail, data.CVImage)
+
 
   const authState = useAuthState()
   async function getCVLayout() {

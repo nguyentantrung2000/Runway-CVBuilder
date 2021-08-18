@@ -2,8 +2,23 @@ import './CreateCV2.css'
 import { Row, Col, Container, Form, InputGroup, FormControl, ListGroup, Card, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from "../../components/nav_bar/Navbar"
+import {getCVDetail} from '../../hooks/database.hook'
+import { useEffect, useState } from "react";
+import {  useParams } from "react-router-dom";
+
 export const CreateCV2=()=> {
+    let id: any = useParams()
+
+    useEffect(() => {
+        getCV(id.id)
+      
+      }, []);
     
+    async function getCV(id:any){
+        let a = await getCVDetail(id)
+        console.log(a)
+    }
+
     return (
         <>
         <NavBar></NavBar>
