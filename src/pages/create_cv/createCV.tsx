@@ -19,7 +19,8 @@ import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import {  useParams } from "react-router-dom";
+
 
 // validate dữ liệu input
 interface IFormInput {
@@ -54,6 +55,8 @@ interface IFormInput {
 }
 
 export const CreateCV = () => {
+  let id:any = useParams()
+
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [lgShow3, setLgShow3] = useState(false);
@@ -66,11 +69,6 @@ export const CreateCV = () => {
     formState: { errors },
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data:any) => console.log(data);
-
-  // lấy dữ liệu được truyền từ component khác
-  // let location = useLocation();
-  // console.log(location.state);
-  //////////
 
   return (
     <div className="from" style={{ paddingTop: "6rem" }}>
@@ -94,7 +92,7 @@ export const CreateCV = () => {
                           placeholder="Đào Thùy"
                           aria-label="Default"
                           aria-describedby="inputGroup-sizing-default"
-                        />
+                          />
                       </InputGroup>
                       {errors?.firstName?.type === "required" && (
                         <p>This field is required</p>
