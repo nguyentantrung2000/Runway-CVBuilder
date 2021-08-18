@@ -1,6 +1,7 @@
 import { useAuthState } from '../../hooks/auth.hook'
 import { saveCVInfo } from '../../hooks/database.hook'
 import {  useParams } from "react-router-dom";
+import {NavBar} from "../../components/nav_bar/Navbar"
 import "./createCV.css";
 import {
   Row,
@@ -22,7 +23,6 @@ import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import {  useParams } from "react-router-dom";
 
 
 // validate dữ liệu input
@@ -85,6 +85,8 @@ export const CreateCV = () => {
   //////////
 
   return (
+    <>
+    <NavBar></NavBar>
     <div className="from" style={{ paddingTop: "6rem" }}>
       <Container>
         <Form onSubmit={handleSubmit(onSubmit1)}>
@@ -779,5 +781,6 @@ export const CreateCV = () => {
         </Form>
       </Container>
     </div>
+    </>
   );
 };
