@@ -1,14 +1,16 @@
 
 import './ViewExampleCV.css'
-import { Button } from 'rmwc';
+
 import { useState } from "react";
 import { NavLink } from "react-router-dom"
 import { useAuthState } from '../../hooks/auth.hook'
 import { createCV } from '../../hooks/database.hook'
 import { useHistory } from "react-router-dom";
-import {NavBar} from '../../components/nav_bar/Navbar'
+import { NavBar } from '../../components/nav_bar/Navbar'
+import { Modal, Image, Button } from 'react-bootstrap';
 export const ViewExampleCV = () => {
     const history = useHistory();
+    const [show, setShow] = useState(false)
     const CVdatabase = [
         {
             CVSrc: "https://i-vn.joboko.com/images/thumb-cv/1080.jpg",
@@ -67,7 +69,7 @@ export const ViewExampleCV = () => {
         if (index >= 4) {
         }
         else {
-            return <img src={data.CVSrc} alt="" className="CV" onClick={() => createNewCV(authState?.uid)} />
+            return <img src={data.CVSrc} alt="" className="CV" onClick={() => setShow(true)} />
 
         }
     })
@@ -75,8 +77,8 @@ export const ViewExampleCV = () => {
         if (index >= 4) {
         }
         else {
-            return<img src={data.CVSrc} alt="" className="CV"onClick={() => createNewCV(authState?.uid)} />
-            
+            return <img src={data.CVSrc} alt="" className="CV" onClick={() => setShow(true)} />
+
         }
     })
 
@@ -134,31 +136,49 @@ export const ViewExampleCV = () => {
     }
     return (
         <>
-        <NavBar></NavBar>
-        <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
-            <h1 className="category">
-                High Rated CV
-            </h1>
-            <div className="viewCVfunction">
-                <Button onClick={() => createCV(authState)}>Left</Button>
-                <div className="CVList">
-                    {CVList}
+            <NavBar></NavBar>
+            <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
+                <h1 className="category">
+                    High Rated CV
+                </h1>
+                <div className="viewCVfunction">
+                    <Button onClick={() => ViewCV('Decrease HotCV')}>Previous</Button>
+                    <div className="CVList">
+                        {CVList}
 
+                    </div>
+                    <Button onClick={() => ViewCV('Increase HotCV')}>Next</Button>
                 </div>
-                <Button onClick={() => ViewCV('Increase HotCV')}>Right</Button>
-            </div>
-            <h1 className="category">
-                Job CV
-            </h1>
-            <div className="viewCVfunction">
-                <Button onClick={() => ViewCV('Decrease JobCV')}>Left</Button>
-                <div className="CVList">
-                    {JobCVList}
+                <h1 className="category">
+                    Job CV
+                </h1>
+                <div className="viewCVfunction">
+                    <Button onClick={() => ViewCV('Decrease JobCV')}>Previous</Button>
+                    <div className="CVList">
+                        {JobCVList}
 
+                    </div>
+                    <Button onClick={() => ViewCV('Increase JobCV')}>Next</Button>
                 </div>
-                <Button onClick={() => ViewCV('Increase JobCV')}>Right</Button>
+
             </div>
-        </div>
+            <Modal show={show} onHide={() => setShow(false)}
+            
+                centered
+                >
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to choose this template for your CV ?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="outline-danger">
+                        No
+                    </Button>
+                    <Button variant="outline-primary" >
+                        Yes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 }
