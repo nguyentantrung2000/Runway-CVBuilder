@@ -3,14 +3,14 @@ import firebase from 'firebase';
 
 const enviroment = "http://localhost:3001/";
 
-export async function saveCVInfo(  CVID: any,  Fname: any,  Lname: any, Email: any,  dob: any, phone: any,  Address: any,  Country: any,  Bio: any,  Skills: any, Hobbies: any, Educations: any, Employments: any, CVThumbnail: any, CVImage: any ) {
+export async function saveCVInfo(  CVID: any,  Fname: any,  Lname: any,AvatarUser:any, Email: any,  dob: any, phone: any,  Address: any,  Country: any,  Bio: any,  Skills: any, Hobbies: any, Educations: any, Employments: any, CVThumbnail: any, CVImage: any ) {
     console.log( CVID,  Fname)
     await fetch(enviroment + "saveCV", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ CVID: CVID, Fname: Fname, Lname: Lname, Email: Email, dob: dob, phone: phone, Address: Address, Country: Country, Bio: Bio, Skills: Skills, Hobbies: Hobbies, Educations: Educations, Employments: Employments, CVThumbnail: CVThumbnail, CVImage: CVImage })
+        body: JSON.stringify({ CVID: CVID, Fname: Fname, Lname: Lname,AvatarUser:AvatarUser, Email: Email, dob: dob, phone: phone, Address: Address, Country: Country, Bio: Bio, Skills: Skills, Hobbies: Hobbies, Educations: Educations, Employments: Employments, CVThumbnail: CVThumbnail, CVImage: CVImage })
     }).then(data => {
         data.text()
     }).then(res=>{

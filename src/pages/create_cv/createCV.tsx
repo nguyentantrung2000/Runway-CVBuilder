@@ -22,12 +22,14 @@ import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import {  useParams } from "react-router-dom";
+
 
 // validate dữ liệu input
 interface IFormInput {
   firstName: string;
   lastName: string;
+  AvatarUser:string,
   email: string;
   DOB: number;
   phone: number;
@@ -74,7 +76,7 @@ export const CreateCV = () => {
     formState: { errors },
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data: any) => console.log(data);
-  const onSubmit1: SubmitHandler<IFormInput> = (data: any) => saveCVInfo(id.id,data.firstName,data.lastName,data.email,data.DOB,data.phone,data.address,data.country,data.bio,data.skillName,{hobbyName:data.hobbyName},data.education,{company:data.company,fromEmploy:data.fromEmploy,toEmploy:data.toEmploy},data.CVThumbnail,data.CVImage);
+  const onSubmit1: SubmitHandler<IFormInput> = (data: any) => saveCVInfo(id.id,data.firstName,data.lastName,data.AvatarUser,data.email,data.DOB,data.phone,data.address,data.country,data.bio,data.skillName,{hobbyName:data.hobbyName},data.education,{company:data.company,fromEmploy:data.fromEmploy,toEmploy:data.toEmploy},data.CVThumbnail,data.CVImage);
 
   const authState = useAuthState()
   // lấy dữ liệu được truyền từ component khác
@@ -105,7 +107,7 @@ export const CreateCV = () => {
                           placeholder="Đào Thùy"
                           aria-label="Default"
                           aria-describedby="inputGroup-sizing-default"
-                        />
+                          />
                       </InputGroup>
                       {errors?.firstName?.type === "required" && (
                         <p>This field is required</p>
