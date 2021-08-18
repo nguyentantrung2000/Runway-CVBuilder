@@ -1,6 +1,7 @@
 import { useAuthState } from '../../hooks/auth.hook'
 import { saveCVInfo } from '../../hooks/database.hook'
 import {  useParams } from "react-router-dom";
+import {NavBar} from "../../components/nav_bar/Navbar"
 import "./createCV.css";
 import {
   Row,
@@ -12,7 +13,6 @@ import {
   ListGroup,
   Card,
   Button,
-  Image,
   Modal,
   Overlay,
   OverlayTrigger,
@@ -21,15 +21,16 @@ import {
 import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { CV1 } from '../CV_Template/CV1/cv1';
+import domtoimage from 'dom-to-image'
 
 
 // validate dữ liệu input
 interface IFormInput {
   firstName: string;
   lastName: string;
-  AvatarUser:string,
+  AvatarUser: string,
   email: string;
   DOB: number;
   phone: number;
@@ -57,18 +58,23 @@ interface IFormInput {
   toEmploy: number;
   position: string;
   //CV info
-  CVThumbnail: string; 
+  CVThumbnail: string;
   CVImage: string;
 }
 
 export const CreateCV = () => {
-  let id:any = useParams()
+  let id: any = useParams()
 
+const [show,setShow]=useState(true);
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [lgShow3, setLgShow3] = useState(false);
   const [lgShow4, setLgShow4] = useState(false);
 
+  useEffect(() => {
+    getCVLayout()
+  
+  }, []);
   // validate dữ liệu input
   const {
     register,
@@ -76,15 +82,27 @@ export const CreateCV = () => {
     formState: { errors },
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data: any) => console.log(data);
-  const onSubmit1: SubmitHandler<IFormInput> = (data: any) => saveCVInfo(id.id,data.firstName,data.lastName,data.AvatarUser,data.email,data.DOB,data.phone,data.address,data.country,data.bio,data.skillName,{hobbyName:data.hobbyName},data.education,{company:data.company,fromEmploy:data.fromEmploy,toEmploy:data.toEmploy},data.CVThumbnail,data.CVImage);
+  const onSubmit1: SubmitHandler<IFormInput> = (data: any) => saveCVInfo(id.id, data.firstName, data.lastName, data.AvatarUser, data.email, data.DOB, data.phone, data.address, data.country, data.bio, data.skillName, { hobbyName: data.hobbyName }, data.education, { company: data.company, fromEmploy: data.fromEmploy, toEmploy: data.toEmploy }, data.CVThumbnail, data.CVImage);
 
   const authState = useAuthState()
+  async function getCVLayout() {
+
+    let temp = document.getElementById("CVImageLayout")!;
+    let div = await domtoimage.toPng(temp)
+    let img = new Image(600,700)
+    img.src = div
+    document.getElementById('CVImage')?.appendChild(img)
+    setShow(false)
+
+  }
+
   // lấy dữ liệu được truyền từ component khác
   // let location = useLocation();
   // console.log(location.state);
   //////////
-
   return (
+    <>
+    <NavBar></NavBar>
     <div className="from" style={{ paddingTop: "6rem" }}>
       <Container>
         <Form onSubmit={handleSubmit(onSubmit1)}>
@@ -98,7 +116,7 @@ export const CreateCV = () => {
                       <label>First Name</label>
                       <InputGroup className="mb-3" >
                         <FormControl
-                          
+
                           {...register("firstName", {
                             required: true,
                             maxLength: 30,
@@ -107,7 +125,7 @@ export const CreateCV = () => {
                           placeholder="Đào Thùy"
                           aria-label="Default"
                           aria-describedby="inputGroup-sizing-default"
-                          />
+                        />
                       </InputGroup>
                       {errors?.firstName?.type === "required" && (
                         <p>This field is required</p>
@@ -747,11 +765,9 @@ export const CreateCV = () => {
             <Col>
               <Row>
                 <Col xs={6} md={4}>
-                  <Image
-                    style={{ width: "28rem", marginLeft: "5rem" }}
-                    src="https://i.pinimg.com/originals/6e/75/5a/6e755a24094a79f1a3945f31846d6e15.png"
-                    rounded
-                  />
+                  <div id="CVImage" style={{ width: "28rem", marginLeft: "5rem" }}>
+
+                  </div>
                 </Col>
               </Row>
               <Row style={{ marginLeft: "5rem", marginTop: "2rem" }}>
@@ -778,6 +794,9 @@ export const CreateCV = () => {
           </Row>
         </Form>
       </Container>
+      {show===true &&<div id="CVImageLayout"><CV1></CV1></div>}
+
     </div>
+    </>
   );
 };

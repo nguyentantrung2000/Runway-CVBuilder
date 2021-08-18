@@ -3,334 +3,136 @@ import './CV3.css'
 export const CV3 = () => {
     return(
         <>
-            <head>
-    <meta charSet="UTF-8"></meta>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    <title>Resume</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-    <link rel="stylesheet" href="styles.css"></link>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600&display=swap" rel="stylesheet"></link>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-</head>
-            <body>
-    <main className="main-content">
-        <section className="left-section">
-            <div className="left-content">
-                <div className="profile">
-                    <div className="image">
-                        <img src="https://cvenligne.io/wp-content/uploads/2018/06/AVATAR-30-min.png" alt=""></img>
-                    </div>
-                    <h2 className="name">Lorem Dola Ipsum</h2>
-                    <p className="career">Software Engineer</p>
-                </div>
-                <div className="contact-info">
-                    <h3 className="main-title">Contact Info</h3>
-                    <ul>
-                        <li>
-                            <i className="fa fa-phone"></i>
-                            07661892982
-                        </li>
-                        <li>
-                            <i className="fa fa-fax"></i>
-                            loremipsum@gmail.com
-                        </li>
-                        <li>
-                            <i className="fa fa-globe"></i>
-                            www.loremipsum.com
-                        </li>
-                        <li>
-                            <i className="fa fa-facebook"></i>
-                            www.facebook.com/lorem
-                        </li>
-                        <li>
-                            <i className="fa fa-instagram"></i>
-                            @loremipsum
-                        </li>
-                        <li>
-                            <i className="fa fa-map-marker"></i>
-                            37 Pramount St, London
-                        </li>
-                    </ul>
-                </div>
-                <div className="skills-section">
-                    <h3 className="main-title">Skills</h3>
-                    <ul>
-                        <li>
-                            <p className="skill-title">Javascript</p>
-                            <div className="progress-bar">
-                                <div className="progress js-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">Photoshop</p>
-                            <div className="progress-bar">
-                                <div className="progress ps-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">Java</p>
-                            <div className="progress-bar">
-                                <div className="progress j-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">C++</p>
-                            <div className="progress-bar">
-                                <div className="progress c-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">Ruby</p>
-                            <div className="progress-bar">
-                                <div className="progress ps-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">Node js</p>
-                            <div className="progress-bar">
-                                <div className="progress n-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">html/css</p>
-                            <div className="progress-bar">
-                                <div className="progress ps-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">illustrator</p>
-                            <div className="progress-bar">
-                                <div className="progress ps-progress"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p className="skill-title">Wordpress</p>
-                            <div className="progress-bar">
-                                <div className="progress ps-progress"></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div className="references-section">
-                    <h3 className="main-title">References</h3>
-                    <div className="referee">
-                        <h6 className="sub-title">Michael Bowen</h6>
-                        <p className="sub-para">Product Manager</p>
-                        <ul>
-                            <li>
-                                <i className="fa fa-phone"></i>
-                                07661892982
-                            </li>
-                            <li>
-                                <i className="fa fa-fax"></i>
-                                loremipsum@gmail.com
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="referee">
-                        <h6 className="sub-title">Joseph Kumar</h6>
-                        <p className="sub-para">Senior Developer</p>
-                        <ul>
-                            <li>
-                                <i className="fa fa-phone"></i>
-                                07661892982
-                            </li>
-                            <li>
-                                <i className="fa fa-fax"></i>
-                                loremipsum@gmail.com
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="referee">
-                        <h6 className="sub-title">Rick Ross</h6>
-                        <p className="sub-para">Product Manager</p>
-                        <ul>
-                            <li>
-                                <i className="fa fa-phone"></i>
-                                07661892982
-                            </li>
-                            <li>
-                                <i className="fa fa-fax"></i>
-                                loremipsum@gmail.com
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section className="right-section">
-            <div className="right-main-content">
-                <section className="about sect">
-                    <h2 className="right-title">About Me</h2>
-                    <p className="para">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam molestias facilis ullam dolorum, reprehenderit dolorem accusantium sit quo 
-                        dolore nostrum assumenda obcaecati animi commodi nobis labore exercitationem corporis esse eveniet optio laudantium molestiae maiores pariatur nisi cumque. 
-                        Distinctio et, totam, dicta autem nostrum doloribus ipsam vel rerum, molestiae soluta laboriosam. <br></br>
-                        <br></br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto iusto porro suscipit. 
-                        Nihil blanditiis cum voluptates odio recusandae deleniti, nulla repudiandae aliquam adipisci iusto reiciendis sequi labore quos ratione accusamus consectetur, 
-                        libero ex assumenda pariatur commodi animi nobis, dolore id.
-                    </p>
-                </section>
+            <div className="cv">
+  <div className="cv-row">
+    <div className="cv-wrap">
+      <div className="cv-name">Your Name</div>
+      <div className="cv-subname">Senior Frontend Developer</div>
+      <div className="cv-content">
+        <div className="head-title">Exprecince</div>
+        <div className="cv-content-item">
+          <div className="title">Senior Frontend Developer</div>
+          <div className="subtitle">Enterprise Name</div>
+          <div className="time">Aug 2020 - Present - 1 year, Paris</div>
+          <div className="exprecince">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+        </div>
+        <div className="cv-content-item">
+          <div className="title">Frontend Developer</div>
+          <div className="subtitle">Enterprise Name</div>
+          <div className="time">Jan 2017 - 3 year, Turkey</div>
+          <div className="exprecince">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+        </div>
+        <div className="cv-content-item">
+          <div className="title">Frontend Developer</div>
+          <div className="subtitle">Enterprise Name</div>
+          <div className="time">Oct 2015 - 2 year, Turkey</div>
+          <div className="exprecince">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+        </div>
+        <div className="cv-content-item">
+          <div className="title">Frontend Developer</div>
+          <div className="subtitle">Enterprise Name</div>
+          <div className="time">Nov 2018 - 1 year, USA</div>
+          <div className="exprecince">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+        </div>
 
-                <section className="experince sect">
-                    <h2 className="right-title">Experience</h2>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Microsoft</h5>
-                            <p className="para">2017 - 2019</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">Junior Developer</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Google Inc</h5>
-                            <p className="para">2019 - 2020</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">Lead Web developer</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Google Inc</h5>
-                            <p className="para">2019 - 2020</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">Lead Web developer</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Apple</h5>
-                            <p className="para">2020 - Present</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">Senior Developer</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="education sect">
-                    <h2 className="right-title">education</h2>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Cheney School</h5>
-                            <p className="para">2015 - 2016</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">Gcse's</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Cheney School</h5>
-                            <p className="para">2016 - 2018</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">A - Levels</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">University of Sussex</h5>
-                            <p className="para">2018 - Present</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">Computer Science</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="awards sect">
-                    <h2 className="right-title">Awards</h2>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Microsoft</h5>
-                            <p className="para">June 2016</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">Excellent Work</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="timeline">
-                        <div className="left-tl-content">
-                            <h5 className="tl-title">Alphabet Inc</h5>
-                            <p className="para">June 2016</p>
-                        </div>
-                        <div className="right-tl-content">
-                            <div className="tl-content">
-                                <h5 className="tl-title-2">The Star Employee</h5>
-                                <p className="para">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                                    voluptatem deleniti, 
-                                    laboriosam odio nobis quae fugit facilis quo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </section>
-    </main>
-</body>
+      </div>
+      <div className="cv-content">
+        <div className="head-title">Education</div>
+        <div className="cv-content-item">
+          <div className="title">Front-End development courses from W3C
+          </div>
+          <div className="subtitle">Enterprise Name</div>
+          <div className="time">Aug 2017 - Present - 3 year, Turkey</div>
+          <div className="exprecince">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+        </div>
+        <div className="cv-content-item">
+          <div className="title">Front-end development courses from freeCodeCamp.org Curriculum</div>
+          <div className="subtitle">Enterprise Name</div>
+          <div className="time">Aug 2015 - 1 year, Paris</div>
+          <div className="exprecince">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+        </div>
+
+      </div>
+    </div>
+    <div className="cv-wrap">
+      <div className="avatar">
+        <img src="https://image-aws-us-west-2.vsco.co/04d5df/155672998/5ee7bf4f43a34b5b3c000002/720x960/vsco5ee7bf53b94de.jpg" alt="" />
+      </div>
+      <div className="info">
+        <div className="title">Contact</div>
+        <p><a href="mailto:info@ahmetaksungur.com">info@yourmail.com</a></p>
+        <p><a href="tel:+905555554444">+90 555 444 1500</a></p>
+        <p></p>
+      </div>
+      <div className="cv-skills">
+        <div className="head-title">Primary Skills
+        </div>
+        <div className="cv-skills-item">
+          <div className="title">HTML</div>
+          <div className="title">CSS </div>
+          <div className="title">JAVASCRİPT</div>
+          <div className="title">PHP</div>
+        </div>
+
+      </div>
+      <div className="cv-skills">
+        <div className="head-title">Secondary Skills
+        </div>
+        <div className="cv-skills-item">
+          <div className="title">jQuery</div>
+          <div className="title">AJAX</div>
+          <div className="title">Bower</div>
+          <div className="title">NPM</div>
+          <div className="title">Grunt/Gulp</div>
+          <div className="title">Git</div>
+          <div className="title">Bootstrap</div>
+          <div className="title">WordPress</div>
+          <div className="title">SharePoint</div>
+          <div className="title">PowerShell</div>
+        </div>
+
+      </div>
+      <div className="cv-social">
+        <a href="" title="Github">
+          <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision" style={{}}>
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path>
+          </svg>
+
+        </a>
+        <a href="#" title="Codepen">
+          <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision" style={{}}>
+            <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2z"></path>
+            <path d="M12 22v-6.5"></path>
+            <path d="M22 8.5l-10 7-10-7"></path>
+            <path d="M2 15.5l10-7 10 7"></path>
+            <path d="M12 2v6.5"></path>
+          </svg></a> <a href="#" title="Linkedin">
+          <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision" style={{}}>
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path>
+            <path d="M2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg></a>
+        <a href="#" title="İnstagram">
+          <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision" style={{}}>
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+            <path d="M17.5 6.5h.01"></path>
+          </svg>
+        </a>
+        <a href="#" title="Medium">
+          <svg fill="currentColor" width="30px" height="30px" viewBox="0 0 15 15">
+            <g>
+              <path d="M1.79062 2.44688C1.80938 2.2625 1.7375 2.07812 1.6 1.95313L0.190625 0.253125L0.190625 0L4.57188 0L7.95937 7.42812L10.9375 0L15.1156 0L15.1156 0.253125L13.9094 1.40937C13.8062 1.4875 13.7531 1.61875 13.775 1.74687L13.775 10.2469C13.7531 10.375 13.8062 10.5063 13.9094 10.5844L15.0875 11.7406L15.0875 11.9937L9.15938 11.9937L9.15938 11.7406L10.3813 10.5562C10.5 10.4375 10.5 10.4 10.5 10.2188L10.5 3.35L7.10313 11.9719L6.64375 11.9719L2.69375 3.35L2.69375 9.12812C2.65937 9.37187 2.74063 9.61563 2.9125 9.79062L4.5 11.7156L4.5 11.9687L0 11.9687L0 11.7188L1.5875 9.79062C1.75625 9.61563 1.83438 9.36875 1.79062 9.12812L1.79062 2.44688Z"></path>
+            </g>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
         </>
     )
 }

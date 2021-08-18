@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom"
 import { useAuthState } from '../../hooks/auth.hook'
 import { createCV } from '../../hooks/database.hook'
 import { useHistory } from "react-router-dom";
-
+import {NavBar} from '../../components/nav_bar/Navbar'
 export const ViewExampleCV = () => {
     const history = useHistory();
     const CVdatabase = [
@@ -133,6 +133,8 @@ export const ViewExampleCV = () => {
         }
     }
     return (
+        <>
+        <NavBar></NavBar>
         <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
             <h1 className="category">
                 High Rated CV
@@ -157,6 +159,7 @@ export const ViewExampleCV = () => {
                 <Button onClick={() => ViewCV('Increase JobCV')}>Right</Button>
             </div>
         </div>
+        </>
     );
 }
 

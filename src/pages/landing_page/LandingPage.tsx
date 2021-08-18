@@ -2,9 +2,12 @@ import "./LandingPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col, Container, Row, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-
+import {NavBar} from "../../components/nav_bar/Navbar"
 export const LandingPage = () => {
   return (
+   
+    <>
+     <NavBar></NavBar>
     <div style={{ paddingTop: "5rem" }}>
       <Container>
         <Row>
@@ -3946,5 +3949,6 @@ NyswMzowMF8XU8gAAAAASUVORK5CYII="
         </div>
       </Container>
     </div>
+    </>
   );
 };
