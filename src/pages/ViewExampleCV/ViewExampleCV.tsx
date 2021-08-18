@@ -171,10 +171,10 @@ export const ViewExampleCV = () => {
                 </Modal.Header>
                 <Modal.Body>Are you sure you want to choose this template for your CV ?</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="outline-danger">
+                    <Button variant="outline-danger"onClick={() => setShow(false)}>
                         No
                     </Button>
-                    <Button variant="outline-primary" >
+                    <Button variant="outline-primary" onClick={() => createNewCV(authState?.uid)}>
                         Yes
                     </Button>
                 </Modal.Footer>
