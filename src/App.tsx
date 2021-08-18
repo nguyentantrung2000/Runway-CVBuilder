@@ -22,6 +22,7 @@ function App() {
     <>
       <React.Fragment>
         <Router>
+          <NavBar></NavBar>
           <Switch>
 
             <Route path="/" exact component={LandingPage} />

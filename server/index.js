@@ -61,9 +61,9 @@ app.post("/deleteCV", async (req, res) => {
 ///////// CV  API //////////////////////////////////
 
 app.post("/saveCV", async (req, res) => {
-    const { CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage } = req.body
+    const { CVID, Fname, Lname,AvatarUser, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage } = req.body
     try {
-        let result = await db.saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage);
+        let result = await db.saveCVInfo(CVID, Fname, Lname,AvatarUser, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage);
         res.send("Lưu thông tin thành công");
     } catch (err) {
         console.log(err)

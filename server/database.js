@@ -21,16 +21,17 @@ class Database {
                 CVDetails: {
                     Fname: null,
                     Lname: null,
+                    AvatarUser:null,
                     Email: null,
                     dob: null,
                     phone: null,
                     Address: null,
                     Country: null,
                     Bio: null,
-                    Skills: null,
-                    Hobbies: null,
-                    Educations: null,
-                    Employments: null,
+                    Skills: [],
+                    Hobbies: [],
+                    Educations: [],
+                    Employments: [],
                 },
                 CVThumbnail: null,
                 CVImage: null,
@@ -58,7 +59,7 @@ class Database {
             })
         for (let i = 0; i < CVList.length; i++) {
             await firestore.collection("CV").doc(CVList[i]).get().then(data => {
-                return CVDetailList.push({CV:data.data(),id:data.id})
+                return CVDetailList.push({ CV: data.data(), id: data.id })
             })
         }
         return CVDetailList;
@@ -68,12 +69,13 @@ class Database {
 
 
     ////Lưu thông tin CV
-    async saveCVInfo(CVID, Fname, Lname, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage) {
+    async saveCVInfo(CVID, Fname, Lname,AvatarUser, Email, dob, phone, Address, Country, Bio, Skills, Hobbies, Educations, Employments, CVThumbnail, CVImage) {
         try {
             await firestore.collection("CV").doc(CVID).set({
                 CVDetails: {
                     Fname: Fname || null,
                     Lname: Lname || null,
+                    AvatarUser:AvatarUser||null,
                     Email: Email || null,
                     dob: dob || null,
                     phone: phone || null,
