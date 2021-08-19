@@ -30,6 +30,7 @@ export const UserCV = () => {
     async function deleteUserCV(UserID:any,CVID:any){
             await deleteCV(UserID,CVID)
             setShow1({show:false,data:""})
+            getUserCV(authState?.uid)
     }
     useEffect(() => {
         getUserCV(authState?.uid)
