@@ -6,6 +6,8 @@ import { useAuthState } from '../../hooks/auth.hook';
 import { getOwnedCV,deleteCV } from '../../hooks/database.hook';
 import { useEffect, useState } from 'react';
 import { NavBar } from '../../components/nav_bar/Navbar';
+import jspdf from 'jspdf'
+import html2canvas from 'html2canvas'
 export const UserCV = () => {
     const [show, setShow] = useState(false);
     const [show1,setShow1]=useState({show:false,data:""});
@@ -24,8 +26,18 @@ export const UserCV = () => {
         setShow(true)
          setCurrentCV(CV)
     }
-    async function exportPDF(CVImage:any){
-
+    async function exportPDF(){
+        let pdf = new jspdf("p", "mm", "a4");
+        var width = pdf.internal.pageSize.getWidth();
+        var height = pdf.internal.pageSize.getHeight();
+        let temp = document.getElementById("CVImage")!;
+        html2canvas(temp)
+        .then((canvas) => {
+          const imgData = canvas.toDataURL('image/png');
+          pdf.addImage(imgData,'PNG',0,0,width,height);
+          pdf.save(`Your CV created in ${currentCV.CV.dateCreated}`);
+        })
+      
     }
     async function deleteUserCV(UserID:any,CVID:any){
             await deleteCV(UserID,CVID)
@@ -91,7 +103,7 @@ export const UserCV = () => {
                     rounded
                     id="CVImage"
                   />
-                   <Button onClick={()=>exportPDF(currentCV.CV.CVImage)} >Export PDF</Button>
+                   <Button onClick={()=>exportPDF()} >Export PDF</Button>
                 </Modal.Body>
             </Modal>
 
