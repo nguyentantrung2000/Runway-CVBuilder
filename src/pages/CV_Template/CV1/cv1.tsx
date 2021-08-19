@@ -1,10 +1,12 @@
 import './cv1.css'
+import React from 'react'
 import { ButtonCreate } from '../../../components/button/button'
-export const CV1 = () => {
+export const CV1 = (props: any) => {
+    
+        console.log(props)
     return (
-        <>
+        <>  
             <head>
-
                 <title>Jonathan Doe | Web Designer, Director | name@yourdomain.com</title>
                 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 

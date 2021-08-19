@@ -144,11 +144,13 @@ export const CreateCV = () => {
       data.CVThumbnail,
       data.CVImage
     );
+  
 
   const authState = useAuthState();
   async function getCVLayout() {
     let temp = document.getElementById("CVImageLayout")!;
     let div = await domtoimage.toPng(temp);
+
     let img = new Image(600, 700);
     img.src = div;
     document.getElementById("CVImage")?.appendChild(img);
@@ -419,9 +421,9 @@ export const CreateCV = () => {
                                             style={{ marginTop: "0.35rem" }}
                                             placeholder="1-10"
                                             maxLength={2}
-                                            type = "number"
-                                            min = "1"
-                                            max = "10"
+                                            type="number"
+                                            min="1"
+                                            max="10"
                                             aria-label="Default select example"
                                           ></Form.Control>
                                         </Form>
@@ -430,12 +432,12 @@ export const CreateCV = () => {
                                         )}
                                         {errors?.level?.type ===
                                           "minLength" && (
-                                          <p>Level cannot less 1</p>
-                                        )}
+                                            <p>Level cannot less 1</p>
+                                          )}
                                         {errors?.level?.type ===
                                           "maxLength" && (
-                                          <p>Level cannot exceed 10</p>
-                                        )}
+                                            <p>Level cannot exceed 10</p>
+                                          )}
                                       </div>
                                     </div>
                                     <div style={{ marginTop: "2.4rem" }}>
@@ -627,8 +629,8 @@ export const CreateCV = () => {
                                             </Form.Group>
                                             {errors?.fromEdu?.type ===
                                               "pattern" && (
-                                              <p>Field number only</p>
-                                            )}
+                                                <p>Field number only</p>
+                                              )}
                                           </div>
                                           <div>
                                             <Form.Group
@@ -647,8 +649,8 @@ export const CreateCV = () => {
                                             </Form.Group>
                                             {errors?.toEdu?.type ===
                                               "pattern" && (
-                                              <p>Field number only</p>
-                                            )}
+                                                <p>Field number only</p>
+                                              )}
                                           </div>
                                         </div>
                                         <div>
@@ -786,8 +788,8 @@ export const CreateCV = () => {
                                             </Form.Group>
                                             {errors?.fromEmploy?.type ===
                                               "pattern" && (
-                                              <p>Field number only</p>
-                                            )}
+                                                <p>Field number only</p>
+                                              )}
                                           </div>
                                           <div>
                                             <Form.Group
@@ -806,8 +808,8 @@ export const CreateCV = () => {
                                             </Form.Group>
                                             {errors?.toEmploy?.type ===
                                               "pattern" && (
-                                              <p>Field number only</p>
-                                            )}
+                                                <p>Field number only</p>
+                                              )}
                                           </div>
                                         </div>
                                       </div>

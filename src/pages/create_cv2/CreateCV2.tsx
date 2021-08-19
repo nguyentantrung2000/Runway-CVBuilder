@@ -5,15 +5,18 @@ import {NavBar} from "../../components/nav_bar/Navbar"
 import {getCVDetail} from '../../hooks/database.hook'
 import { useEffect, useState } from "react";
 import {  useParams } from "react-router-dom";
-
+import { CV1 } from "../CV_Template/CV1/cv1";
 export const CreateCV2=()=> {
     let id: any = useParams()
 
+    const [dataCVState, setDataSate] = useState("")
+    const [show, setShow] = useState(true);
     useEffect(() => {
         getCV(id.id)
       
       }, []);
     
+
     async function getCV(id:any){
         let a = await getCVDetail(id)
         console.log(a)
@@ -79,6 +82,11 @@ export const CreateCV2=()=> {
                     </Col>
                 </Row>
             </Container>
+            {show === false && (
+          <div id="CVImageLayout">
+            <CV1></CV1>
+          </div>
+        )}
         </div>
         </>
     )
