@@ -11,6 +11,7 @@ export const CreateCV2=()=> {
 
     const [dataCVState, setDataSate] = useState("")
     const [show, setShow] = useState(true);
+    
     useEffect(() => {
         getCV(id.id)
       
