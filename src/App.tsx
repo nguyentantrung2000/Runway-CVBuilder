@@ -26,7 +26,7 @@ function App() {
 
             <Route path="/" exact component={LandingPage} />
             <Route path="/createcv/:id" component={CreateCV} />
-            <Route path="/createcv2" component={CreateCV2} />
+            <Route path="/createcv2/:id" component={CreateCV2} />
             <Route path="/usercv" component={UserCV} />
             <Route path="/viewexcv" component={ViewExampleCV} />
             <Route path="/cv1" component={CV1} />
