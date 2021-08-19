@@ -63,6 +63,7 @@ export const ViewExampleCV = () => {
     async function createNewCV(UserID: any) {
         let id = await createCV(UserID);
         history.push(`/createCV/${id}`);
+        setShow(false);
     }
 
     let CVList = CV.map((data, index) => {
