@@ -84,7 +84,7 @@ export const CreateCV = () => {
     CVThumbnail: any,
     CVImage: any
   ) {
-    await saveCVInfo(
+   let result = await saveCVInfo(
       id,
       firstName,
       lastName,
@@ -102,9 +102,10 @@ export const CreateCV = () => {
       CVThumbnail,
       CVImage
     );
+    console.log("cvinfo" ,result)
     history.push(`/createcv2/${id}`);
   }
-
+ 
   const [show, setShow] = useState(true);
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
@@ -878,11 +879,6 @@ export const CreateCV = () => {
             </Row>
           </Form>
         </Container>
-        {show === true && (
-          <div id="CVImageLayout">
-            <CV1></CV1>
-          </div>
-        )}
       </div>
     </>
   );

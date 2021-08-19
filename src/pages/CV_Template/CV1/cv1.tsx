@@ -1,12 +1,14 @@
 import './cv1.css'
-import React from 'react'
 import { ButtonCreate } from '../../../components/button/button'
-export const CV1 = (props: any) => {
-    
-        console.log(props)
+export const CV1 = (props:any) => {
+    console.log("props data ne" ,props)
+    if(props.dataCV == undefined){
+        return <h1> haha </h1>
+    }
     return (
-        <>  
+        <>
             <head>
+
                 <title>Jonathan Doe | Web Designer, Director | name@yourdomain.com</title>
                 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
@@ -25,7 +27,7 @@ export const CV1 = (props: any) => {
                         <div id="hd">
                             <div className="yui-gc">
                                 <div className="yui-u first">
-                                    <h1>Jonathan Doe</h1>
+                                    <h1>{props.dataCV.CVDetails.Fname}</h1>
                                     <h2>Web Designer, Director</h2>
                                 </div>
 

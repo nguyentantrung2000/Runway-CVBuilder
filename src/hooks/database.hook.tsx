@@ -75,8 +75,10 @@ export async function getCVDetail(CVID:any) {
     }).then(data=>{
         return data.json();
     }).then(res=>{
+        console.log("responed",res)
         return result=res;
     })
+    console.log("cvdetails",result)
     return result
 }
 

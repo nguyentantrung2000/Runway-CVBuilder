@@ -7,22 +7,31 @@ import { useEffect, useState } from "react";
 import {  useParams } from "react-router-dom";
 import { CV1 } from "../CV_Template/CV1/cv1";
 export const CreateCV2=()=> {
+     const [dataCVState , dataSet] = useState()
     let id: any = useParams()
-
-    const [dataCVState, setDataSate] = useState("")
+    console.log("data",dataCVState)
+   
     const [show, setShow] = useState(true);
     
     useEffect(() => {
+        async function getCV(id:any){
+            let a = await getCVDetail(id)
+            dataSet(a)
+            console.log("thang a ",a)
+           
+        }
+        
         getCV(id.id)
-      
-      }, []);
+      }, [id.id]);
     
 
-    async function getCV(id:any){
-        let a = await getCVDetail(id)
-        console.log(a)
-    }
+    
 
+    
+    
+
+    
+    
     return (
         <>
         <NavBar></NavBar>
@@ -83,12 +92,14 @@ export const CreateCV2=()=> {
                     </Col>
                 </Row>
             </Container>
-            {show === false && (
+            {show === true && (
           <div id="CVImageLayout">
-            <CV1></CV1>
+            <CV1 dataCV={dataCVState}  />
           </div>
         )}
         </div>
         </>
     )
 }
+
+
