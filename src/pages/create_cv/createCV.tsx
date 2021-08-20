@@ -3,6 +3,7 @@ import { deleteCV, saveCVInfo } from "../../hooks/database.hook";
 import { useParams } from "react-router-dom";
 import { NavBar } from "../../components/nav_bar/Navbar";
 import { useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 import {
   Row,
   Col,
@@ -82,7 +83,7 @@ export const CreateCV = () => {
     CVThumbnail: any,
     CVImage: any
   ) {
-   let result = await saveCVInfo(
+    let result = await saveCVInfo(
       id,
       firstName,
       lastName,
@@ -100,16 +101,16 @@ export const CreateCV = () => {
       CVThumbnail,
       CVImage
     );
-    console.log("cvinfo" ,result)
+    console.log("cvinfo", result)
     history.push(`/createcv2/${id}`);
   }
- 
+
   const [show, setShow] = useState(true);
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [lgShow3, setLgShow3] = useState(false);
   const [lgShow4, setLgShow4] = useState(false);
-  const [DeleteModal,setDeleteModal]=useState(false);
+  const [DeleteModal, setDeleteModal] = useState(false);
 
   // validate dữ liệu input
   const {
@@ -141,7 +142,7 @@ export const CreateCV = () => {
       data.CVThumbnail,
       data.CVImage
     );
-  
+
 
   const authState = useAuthState();
 
@@ -149,8 +150,8 @@ export const CreateCV = () => {
   // let location = useLocation();
   // console.log(location.state);
   //////////
-  async function deleteCurrentCV(){
-    await deleteCV(authState?.uid,id.id);
+  async function deleteCurrentCV() {
+    await deleteCV(authState?.uid, id.id);
     setDeleteModal(false);
     history.push("/")
   }
@@ -850,9 +851,14 @@ export const CreateCV = () => {
                 <Row style={{ marginLeft: "5rem", marginTop: "2rem" }}>
                   <Col>
                     {" "}
-                    <Button style={{ width: "9rem" }} variant="outline-danger" onClick={()=>setDeleteModal(true)}>
-                      Cancel
-                    </Button>{" "}
+
+                    <NavLink to={{ pathname: "/viewexcv" }}>
+                      <Button style={{ width: "9rem" }} variant="outline-danger" onClick={() => setDeleteModal(true)}>
+                        Cancel
+                      </Button>{" "}
+                    </NavLink>
+
+
                   </Col>
                   <Col>
                     {/* <NavLink to={{ pathname: "/createcv2" }}>
@@ -874,22 +880,22 @@ export const CreateCV = () => {
 
       </div>
       <Modal show={DeleteModal} onHide={() => setDeleteModal(false)}
-            
-            centered
-            >
-            <Modal.Header closeButton>
-                <Modal.Title>Confirm</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Return to HomePage ?Your data won't be save!!</Modal.Body>
-            <Modal.Footer>
-                <Button variant="outline-danger"onClick={() => setDeleteModal(false)}>
-                    No
-                </Button>
-                <Button variant="outline-primary" onClick={() =>deleteCurrentCV()}>
-                    Yes
-                </Button>
-            </Modal.Footer>
-        </Modal>
+
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Return to HomePage ?Your data won't be save!!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="outline-danger" onClick={() => setDeleteModal(false)}>
+            No
+          </Button>
+          <Button variant="outline-primary" onClick={() => deleteCurrentCV()}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
