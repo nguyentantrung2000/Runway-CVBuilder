@@ -13,7 +13,7 @@ export const ViewExampleCV = () => {
     const [show, setShow] = useState(false)
     const CVdatabase = [
         {
-            CVSrc: "/Users/Mac/Runway/Runway-CV-Builder/src/asset/cv1_template.png",
+            CVSrc: "https://superdevresources.com/wp-content/uploads/2016/05/diy-htm-resume-768x744.png",
         },
         {
             CVSrc: "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340",

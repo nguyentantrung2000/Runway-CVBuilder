@@ -93,7 +93,7 @@ export const CreateCV2=()=> {
                     </Col>
                 </Row>
             </Container>
-            {show === false && (
+            {show === true && (
           <div id="CVImageLayout">
             <CV1 dataCV={dataCVState}  />
           </div>
