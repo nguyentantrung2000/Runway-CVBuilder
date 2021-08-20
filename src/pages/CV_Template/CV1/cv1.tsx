@@ -67,15 +67,6 @@ export const CV1 = (props:any) => {
                                                 <p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
                                             </div>
 
-                                            <div className="talent">
-                                                <h2>Interface Design</h2>
-                                                <p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
-                                            </div>
-
-                                            <div className="talent">
-                                                <h2>Project Direction</h2>
-                                                <p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
-                                            </div>
                                         </div>
                                     </div>
 
@@ -161,7 +152,7 @@ export const CV1 = (props:any) => {
                         </div>
 
                         <div id="ft">
-                            <p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) - 867-5309</p>
+                            <p>{props.dataCV.CVDetails.Fname} {props.dataCV.CVDetails.Lname} &mdash; <a href="mailto:name@yourdomain.com">{props.dataCV.CVDetails.Email}</a> &mdash; {props.dataCV.CVDetails.phone}</p>
                         </div>
 
                     </div>
