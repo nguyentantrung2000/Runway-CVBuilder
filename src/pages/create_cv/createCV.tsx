@@ -23,7 +23,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 
-import domtoimage from "dom-to-image";
 
 // validate dữ liệu input
 interface IFormInput {
@@ -112,9 +111,6 @@ export const CreateCV = () => {
   const [lgShow4, setLgShow4] = useState(false);
   const [DeleteModal,setDeleteModal]=useState(false);
 
-  useEffect(() => {
-    getCVLayout();
-  }, []);
   // validate dữ liệu input
   const {
     register,
@@ -148,15 +144,6 @@ export const CreateCV = () => {
   
 
   const authState = useAuthState();
-  async function getCVLayout() {
-    let temp = document.getElementById("CVImageLayout")!;
-    let div = await domtoimage.toPng(temp);
-
-    let img = new Image(600, 700);
-    img.src = div;
-    document.getElementById("CVImage")?.appendChild(img);
-    setShow(false);
-  }
 
   // lấy dữ liệu được truyền từ component khác
   // let location = useLocation();
