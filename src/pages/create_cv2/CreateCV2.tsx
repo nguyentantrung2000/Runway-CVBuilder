@@ -85,14 +85,15 @@ export const CreateCV2=()=> {
                             </div>
                             </div>
                             <Row style={{ 'marginTop': '5rem' }}>
+                                
+                                <Col> <Button style={{ 'width': '9rem' }} variant="outline-danger">Back</Button>{' '}</Col>
                                 <Col >  <Button style={{ 'width': '9rem' }} variant="outline-primary">Export PDF</Button>{' '}</Col>
-                                <Col> <Button style={{ 'width': '9rem' }} variant="outline-success">Done</Button>{' '}</Col>
                             </Row>
                         </div>
                     </Col>
                 </Row>
             </Container>
-            {show === true && (
+            {show === false && (
           <div id="CVImageLayout">
             <CV1 dataCV={dataCVState}  />
           </div>

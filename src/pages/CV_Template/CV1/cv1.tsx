@@ -6,7 +6,7 @@ export const CV1 = (props:any) => {
         return <h1> haha </h1>
     }
     return (
-        <>
+        <div style={{height:'5rem'}}>
             <head>
 
                 <title>Jonathan Doe | Web Designer, Director | name@yourdomain.com</title>
@@ -27,15 +27,15 @@ export const CV1 = (props:any) => {
                         <div id="hd">
                             <div className="yui-gc">
                                 <div className="yui-u first">
-                                    <h1>{props.dataCV.CVDetails.Fname}</h1>
+                                    <h1>{props.dataCV.CVDetails.Fname} {props.dataCV.CVDetails.Lname} </h1>
                                     <h2>Web Designer, Director</h2>
                                 </div>
 
                                 <div className="yui-u">
                                     <div className="contact-info">
                                         <h3><a id="pdf" href="#">Download PDF</a></h3>
-                                        <h3><a href="mailto:name@yourdomain.com">name@yourdomain.com</a></h3>
-                                        <h3>(313) - 867-5309</h3>
+                                        <h3><a href="mailto:name@yourdomain.com">{props.dataCV.CVDetails.Email}</a></h3>
+                                        <h3>{props.dataCV.CVDetails.phone}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@ export const CV1 = (props:any) => {
                                         </div>
                                         <div className="yui-u">
                                             <p className="enlarge">
-                                                Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.
+                                            {props.dataCV.CVDetails.Bio}
                                             </p>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@ export const CV1 = (props:any) => {
                                         <div className="yui-u">
 
                                             <div className="talent">
-                                                <h2>Web Design</h2>
+                                                <h2>{props.dataCV.CVDetails.Skills}</h2>
                                                 <p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
                                             </div>
 
@@ -171,6 +171,6 @@ export const CV1 = (props:any) => {
 
 
             </body>
-        </>
+        </div>
     )
 }
