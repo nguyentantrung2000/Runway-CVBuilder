@@ -69,6 +69,16 @@ app.post("/saveCV", async(req, res) => {
             console.log(err)
         }
     })
+app.post("/updateCVPicture",async(req,res)=>{
+    const {CVID,pictureData}=req.body;
+    try{
+        let result=await db.updateCVpicture(CVID,pictureData);
+        res.send("Update thành công");
+    
+    }catch(err){
+       
+    }
+})
     ///////// END CV  API //////////////////////////////////
 
 ////////// User CV ////////////////////
