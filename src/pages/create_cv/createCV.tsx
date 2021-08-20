@@ -1,6 +1,5 @@
 import { useAuthState } from "../../hooks/auth.hook";
-import { saveCVInfo } from "../../hooks/database.hook";
-import { getCVDetail } from "../../hooks/database.hook";
+import { deleteCV, saveCVInfo } from "../../hooks/database.hook";
 import { useParams } from "react-router-dom";
 import { NavBar } from "../../components/nav_bar/Navbar";
 import { useHistory } from "react-router-dom";
@@ -23,8 +22,7 @@ import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
-import { CV1 } from "../CV_Template/CV1/cv1";
-import domtoimage from "dom-to-image";
+
 
 // validate dữ liệu input
 interface IFormInput {
@@ -111,10 +109,8 @@ export const CreateCV = () => {
   const [show2, setShow2] = useState(false);
   const [lgShow3, setLgShow3] = useState(false);
   const [lgShow4, setLgShow4] = useState(false);
+  const [DeleteModal,setDeleteModal]=useState(false);
 
-  useEffect(() => {
-    getCVLayout();
-  }, []);
   // validate dữ liệu input
   const {
     register,
@@ -148,20 +144,16 @@ export const CreateCV = () => {
   
 
   const authState = useAuthState();
-  async function getCVLayout() {
-    let temp = document.getElementById("CVImageLayout")!;
-    let div = await domtoimage.toPng(temp);
-
-    let img = new Image(600, 700);
-    img.src = div;
-    document.getElementById("CVImage")?.appendChild(img);
-    setShow(false);
-  }
 
   // lấy dữ liệu được truyền từ component khác
   // let location = useLocation();
   // console.log(location.state);
   //////////
+  async function deleteCurrentCV(){
+    await deleteCV(authState?.uid,id.id);
+    setDeleteModal(false);
+    history.push("/")
+  }
   return (
     <>
       <NavBar></NavBar>
@@ -858,8 +850,8 @@ export const CreateCV = () => {
                 <Row style={{ marginLeft: "5rem", marginTop: "2rem" }}>
                   <Col>
                     {" "}
-                    <Button style={{ width: "9rem" }} variant="outline-primary">
-                      Export PDF
+                    <Button style={{ width: "9rem" }} variant="outline-danger" onClick={()=>setDeleteModal(true)}>
+                      Cancel
                     </Button>{" "}
                   </Col>
                   <Col>
@@ -879,7 +871,25 @@ export const CreateCV = () => {
             </Row>
           </Form>
         </Container>
+
       </div>
+      <Modal show={DeleteModal} onHide={() => setDeleteModal(false)}
+            
+            centered
+            >
+            <Modal.Header closeButton>
+                <Modal.Title>Confirm</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Return to HomePage ?Your data won't be save!!</Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-danger"onClick={() => setDeleteModal(false)}>
+                    No
+                </Button>
+                <Button variant="outline-primary" onClick={() =>deleteCurrentCV()}>
+                    Yes
+                </Button>
+            </Modal.Footer>
+        </Modal>
     </>
   );
 };
