@@ -62,6 +62,19 @@ export async function deleteCV(UserID:any,CVID:any){
         return res;
     })
 }
+export async function updateCVPicture(CVID:any,pictureData:any){
+    await fetch(enviroment+"updateCVPicture",{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({CVID:CVID,pictureData:pictureData})
+    }).then(data=>{
+        data.text()
+    }).then(res=>{
+        return res;
+    })
+}
 
 
 export async function getCVDetail(CVID:any) {

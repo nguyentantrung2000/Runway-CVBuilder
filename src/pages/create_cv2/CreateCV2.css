@@ -47,3 +47,7 @@ input {
 .react-switch-label:active .react-switch-button {
     width: 60px;
 }
+#CVImageLayout{
+    width: fit-content;
+    height: 100rem;
+}
