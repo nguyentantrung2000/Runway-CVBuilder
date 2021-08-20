@@ -162,6 +162,7 @@ export const CreateCV = () => {
         <Container>
           <Form onSubmit={handleSubmit(onSubmit1)}>
             <Row>
+             
               <Col>
                 <h3>Personal Detail</h3>
                 <div>
@@ -837,18 +838,19 @@ export const CreateCV = () => {
                     </Row>
                   </Container>
                 </div>
-              </Col>
-
+              </Col>                                      
               <Col>
                 <Row>
                   <Col xs={6} md={4}>
                     <div
                       id="CVImage"
-                      style={{ width: "28rem", marginLeft: "5rem" }}
-                    ></div>
+                      style={{ width: "28rem", marginLeft: "2rem" }}
+                    >
+                       <img src="https://superdevresources.com/wp-content/uploads/2016/05/diy-htm-resume-768x744.png"></img>
+                    </div>
                   </Col>
                 </Row>
-                <Row style={{ marginLeft: "5rem", marginTop: "2rem" }}>
+                <Row style={{ marginLeft: "15rem", marginTop: "2rem" }}>
                   <Col>
                     {" "}
 
