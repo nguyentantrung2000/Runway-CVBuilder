@@ -1,6 +1,7 @@
 import { useAuthState } from "../../hooks/auth.hook";
 import { saveCVInfo } from "../../hooks/database.hook";
 import { getCVDetail } from "../../hooks/database.hook";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { NavBar } from "../../components/nav_bar/Navbar";
 import { useHistory } from "react-router-dom";
@@ -84,7 +85,7 @@ export const CreateCV = () => {
     CVThumbnail: any,
     CVImage: any
   ) {
-   let result = await saveCVInfo(
+    let result = await saveCVInfo(
       id,
       firstName,
       lastName,
@@ -102,10 +103,10 @@ export const CreateCV = () => {
       CVThumbnail,
       CVImage
     );
-    console.log("cvinfo" ,result)
+    console.log("cvinfo", result)
     history.push(`/createcv2/${id}`);
   }
- 
+
   const [show, setShow] = useState(true);
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
@@ -145,7 +146,7 @@ export const CreateCV = () => {
       data.CVThumbnail,
       data.CVImage
     );
-  
+
 
   const authState = useAuthState();
   async function getCVLayout() {
@@ -858,9 +859,11 @@ export const CreateCV = () => {
                 <Row style={{ marginLeft: "5rem", marginTop: "2rem" }}>
                   <Col>
                     {" "}
-                    <Button style={{ width: "9rem" }} variant="outline-primary">
-                      Export PDF
-                    </Button>{" "}
+                    <NavLink to={{ pathname: "/viewexcv" }}>
+                      <Button style={{ width: "9rem" }} variant="outline-danger">
+                        Cancel
+                      </Button>{" "}
+                    </NavLink>
                   </Col>
                   <Col>
                     {/* <NavLink to={{ pathname: "/createcv2" }}>
