@@ -118,6 +118,17 @@ class Database {
         }
         return 0;
     }
+    async updateCVpicture(CVID,pictureData){
+        try{
+            await firestore.collection("CV").doc(CVID).update({
+                CVThumbnail:pictureData,
+                CVImage:pictureData,
+            })
+        }catch(err){
+            console.log(err)
+        }
+        return 0;
+    }
 
     //Sửa
 
