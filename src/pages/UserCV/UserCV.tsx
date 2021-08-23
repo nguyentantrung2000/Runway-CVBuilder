@@ -1,16 +1,15 @@
 import './UserCV.css';
 import { Button, Modal, Image } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useAuthState } from '../../hooks/auth.hook';
+import { Link,useHistory  } from 'react-router-dom';
+import { useAuthState} from '../../hooks/auth.hook';
 import { getOwnedCV, deleteCV } from '../../hooks/database.hook';
 import { useEffect, useState } from 'react';
 import { NavBar } from '../../components/nav_bar/Navbar';
 import jspdf from 'jspdf'
-import html2canvas from 'html2canvas'
 import domtoimage from 'dom-to-image'
 import firebase from 'firebase';
 export const UserCV = () => {
+    const  history= useHistory()
     const storage = firebase.app().storage("gs://runway-cv-builder.appspot.com")
     const storageRef = storage.ref();
     const [show, setShow] = useState(false);
@@ -33,21 +32,6 @@ export const UserCV = () => {
         setCurrentCV(CV)
     }
     async function exportPDF() {
-        // console.log(currentCV)
-
-    //    await storageRef.child(`CVImage_${currentCV.id}.png`).getDownloadURL()
-
-    //         .then((url) => {
-    //             var xhr = new XMLHttpRequest();
-    //             xhr.responseType = 'blob';
-    //             xhr.onload = (event) => {
-    //                 var blob = xhr.response;
-    //             };
-    //             xhr.open('GET', url);
-    //             xhr.send();
-    //             console.log(url)
-    //         })
-
 
         let pdf = new jspdf("p", "mm", "a4");
         let temp=  document.getElementById("CVImage")!;
@@ -57,19 +41,6 @@ export const UserCV = () => {
             pdf.addImage(data,'PNG',0,0,width,height)
             pdf.save(`CV_${currentCV.id}`)
         })
-   
-
-  
-
-
-        // html2canvas()
-        // .then((canvas) => {
-        //   const imgData = canvas.toDataURL('image/png');
-        //   console.log(imgData);
-        //   pdf.addImage(imgData,'PNG',0,0,width,height);
-        //   pdf.save(`Your CV `);
-        // })
-
     }
 
     async function deleteUserCV(UserID: any, CVID: any) {
@@ -104,16 +75,15 @@ export const UserCV = () => {
         <>
             <NavBar></NavBar>
             <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
-                <h1 className="category">
-                    Your CV List
-
+                <h1 className="UserCVcategory">
+                    YOUR CV LIST
                 </h1>
-                <div className="CVList">
+                <div className="UserCVCVList">
                     {CVlist}
-                    <div>
-                        <NavLink to={{ pathname: "/viewexcv" }}><div className="CVBoxAdd">
+                  
+                       <div className="CVBoxAdd" onClick={()=>history.push(`/viewexcv`)}>
                             <h1> +Add new CV</h1>
-                        </div></NavLink>
+                    
                     </div>
                 </div>
                 <Modal
