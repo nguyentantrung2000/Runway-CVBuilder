@@ -6,7 +6,7 @@ export const CV1 = (props:any) => {
         return <h1> haha </h1>
     }
     return (
-        <div style={{height:'5rem'}}>
+        <div style={{height:'5rem'}} className="CV1BodyDiv">
             <head>
 
                 <title>Jonathan Doe | Web Designer, Director | name@yourdomain.com</title>
