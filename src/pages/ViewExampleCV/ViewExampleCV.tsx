@@ -1,5 +1,10 @@
 
-import './ViewExampleCV.css'
+// import './ViewExampleCV.css'
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
+
 
 import { useState } from "react";
 import { NavLink } from "react-router-dom"
@@ -8,26 +13,33 @@ import { createCV } from '../../hooks/database.hook'
 import { useHistory } from "react-router-dom";
 import { NavBar } from '../../components/nav_bar/Navbar'
 import { Modal, Image, Button } from 'react-bootstrap';
+import { Swiper, SwiperSlide } from 'swiper/react';
 export const ViewExampleCV = () => {
     const history = useHistory();
     const [show, setShow] = useState(false)
     const CVdatabase = [
         {
+            id: 1,
             CVSrc: "https://superdevresources.com/wp-content/uploads/2016/05/diy-htm-resume-768x744.png",
         },
         {
+            id: 2,
             CVSrc: "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340",
         },
         {
+            id: 3,
             CVSrc: "https://static01.nyt.com/images/2018/10/04/magazine/04blackhole1/04blackhole1-articleLarge-v3.jpg?quality=75&auto=webp&disable=upscale",
         },
         {
+            id: 4,
             CVSrc: "https://i-vn.joboko.com/images/thumb-cv/1080.jpg",
         },
         {
+            id: 5,
             CVSrc: "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2019/07/Man-Silhouette.jpg",
         },
         {
+            id: 6,
             CVSrc: "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2019/07/Man-Silhouette.jpg",
         },
     ]
@@ -137,9 +149,9 @@ export const ViewExampleCV = () => {
     }
     return (
         <>
-            <NavBar></NavBar>
+            {/* <NavBar></NavBar> */}
             <div style={{ 'padding': '3rem 1rem 0 1rem' }} className="body">
-                <h1 className="category">
+                {/* <h1 className="category">
                     High Rated CV
                 </h1>
                 <div className="viewCVfunction">
@@ -160,19 +172,43 @@ export const ViewExampleCV = () => {
 
                     </div>
                     <Button onClick={() => ViewCV('Increase JobCV')}>Next</Button>
-                </div>
+                </div> */}
+
+
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={3}
+                    navigation
+                    pagination={{ clickable: true }}
+                    scrollbar={{ draggable: true }}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                >
+                   {CV.map(cv =>(
+                       <SwiperSlide key={cv.id}>
+                           <div>
+                               <img src={cv.CVSrc}/>
+                           </div>
+                       </SwiperSlide>
+                   ))}
+                    ...
+                </Swiper>
+
+
+
+
 
             </div>
             <Modal show={show} onHide={() => setShow(false)}
-            
+
                 centered
-                >
+            >
                 <Modal.Header closeButton>
                     <Modal.Title>Confirm</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>Are you sure you want to choose this template for your CV ?</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="outline-danger"onClick={() => setShow(false)}>
+                    <Button variant="outline-danger" onClick={() => setShow(false)}>
                         No
                     </Button>
                     <Button variant="outline-primary" onClick={() => createNewCV(authState?.uid)}>
