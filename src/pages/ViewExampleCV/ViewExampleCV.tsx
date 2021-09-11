@@ -1,4 +1,4 @@
-
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 // import './ViewExampleCV.css'
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
@@ -17,6 +17,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export const ViewExampleCV = () => {
     const history = useHistory();
     const [show, setShow] = useState(false)
+    SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
     const CVdatabase = [
         {
             id: 1,
@@ -186,7 +187,7 @@ export const ViewExampleCV = () => {
                 >
                    {CV.map(cv =>(
                        <SwiperSlide key={cv.id}>
-                           <div>
+                           <div className="img-viewcv">
                                <img src={cv.CVSrc}/>
                            </div>
                        </SwiperSlide>
